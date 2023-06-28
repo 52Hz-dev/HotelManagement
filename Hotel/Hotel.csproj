@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTB\DataProvider.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

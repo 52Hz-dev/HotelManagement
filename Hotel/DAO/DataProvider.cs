@@ -12,10 +12,8 @@ namespace Hotel.DTB
 
         public DataProvider(string username, string password)
         {
-            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP;Integrated Security=false ;user id=" + username + ";password=" + password;
-            _connection = new SqlConnection(connectionSTR);
-            if(_connection!=null)
-            MessageBox.Show("succes1");
+            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP;Integrated Security=true";
+            
         }
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
