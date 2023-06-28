@@ -18,7 +18,7 @@ namespace Hotel
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DataProvider data=new DataProvider("saaa","234");
-            Application.Run(new Home());
+            Application.Run(new Form1());
         }
     }
 }
