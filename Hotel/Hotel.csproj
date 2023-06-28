@@ -117,7 +117,6 @@
     <Content Include="img\Picture7.png" />
     <Content Include="img\Picture8.png" />
     <Content Include="img\Picture9.png" />
-    <Content Include="img\sasha-kaunas-xEaAoizNFV8-unsplash.jpg" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
