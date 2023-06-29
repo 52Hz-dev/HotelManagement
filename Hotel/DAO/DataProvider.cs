@@ -10,7 +10,7 @@ namespace Hotel.DTB
         private SqlConnection _connection;
         private string connectionSTR;
 
-        public DataProvider(string username, string password)
+        public DataProvider()
         {
             connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP;Integrated Security=true";
             

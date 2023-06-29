@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.DTB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,16 @@ namespace Hotel
         public Form1()
         {
             InitializeComponent();
+            loadIfKH();
         }
 
+        void loadIfKH()
+        {
+            string query = "select * from KHACHHANG where MAKH = 'KH001'";
+            DataProvider provider = new DataProvider();
+            DGV_Info_KH.DataSource = provider.ExecuteQuery(query);
+
+        }
         private void txt_DV_SuDung_TextChanged(object sender, EventArgs e)
         {
 
