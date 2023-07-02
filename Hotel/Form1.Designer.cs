@@ -97,6 +97,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1324, 1050);
             this.panel1.TabIndex = 1;
@@ -211,7 +212,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 980);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1324, 70);
+            this.panel7.Size = new System.Drawing.Size(1177, 56);
             this.panel7.TabIndex = 5;
             // 
             // panel8
@@ -219,9 +220,10 @@
             this.panel8.Controls.Add(this.btnPrint);
             this.panel8.Controls.Add(this.btn_ThanhToan);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(974, 0);
+            this.panel8.Location = new System.Drawing.Point(866, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(350, 70);
+            this.panel8.Size = new System.Drawing.Size(311, 56);
             this.panel8.TabIndex = 1;
             // 
             // btnPrint
@@ -251,9 +253,10 @@
             this.panel6.Controls.Add(this.DGV_MiniBar);
             this.panel6.Controls.Add(this.lb_TitleMiniBar);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 837);
+            this.panel6.Location = new System.Drawing.Point(0, 669);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1324, 190);
+            this.panel6.Size = new System.Drawing.Size(1177, 152);
             this.panel6.TabIndex = 4;
             // 
             // DGV_MiniBar
@@ -262,21 +265,21 @@
             this.DGV_MiniBar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_MiniBar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_MiniBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DGV_MiniBar.Location = new System.Drawing.Point(0, 65);
-            this.DGV_MiniBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DGV_MiniBar.Location = new System.Drawing.Point(0, 52);
+            this.DGV_MiniBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DGV_MiniBar.Name = "DGV_MiniBar";
             this.DGV_MiniBar.RowHeadersWidth = 62;
-            this.DGV_MiniBar.Size = new System.Drawing.Size(1324, 125);
+            this.DGV_MiniBar.Size = new System.Drawing.Size(1177, 100);
             this.DGV_MiniBar.TabIndex = 1;
             // 
             // lb_TitleMiniBar
             // 
             this.lb_TitleMiniBar.AutoSize = true;
             this.lb_TitleMiniBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TitleMiniBar.Location = new System.Drawing.Point(626, 0);
+            this.lb_TitleMiniBar.Location = new System.Drawing.Point(556, 0);
             this.lb_TitleMiniBar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_TitleMiniBar.Name = "lb_TitleMiniBar";
-            this.lb_TitleMiniBar.Size = new System.Drawing.Size(109, 29);
+            this.lb_TitleMiniBar.Size = new System.Drawing.Size(91, 25);
             this.lb_TitleMiniBar.TabIndex = 0;
             this.lb_TitleMiniBar.Text = "Mini Bar";
             // 
@@ -285,9 +288,10 @@
             this.panel5.Controls.Add(this.lb_TitleDVTour);
             this.panel5.Controls.Add(this.DGV_DVTour);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 608);
+            this.panel5.Location = new System.Drawing.Point(0, 486);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1324, 229);
+            this.panel5.Size = new System.Drawing.Size(1177, 183);
             this.panel5.TabIndex = 3;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -295,9 +299,9 @@
             // 
             this.lb_TitleDVTour.AutoSize = true;
             this.lb_TitleDVTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TitleDVTour.Location = new System.Drawing.Point(617, 3);
+            this.lb_TitleDVTour.Location = new System.Drawing.Point(548, 2);
             this.lb_TitleDVTour.Name = "lb_TitleDVTour";
-            this.lb_TitleDVTour.Size = new System.Drawing.Size(150, 29);
+            this.lb_TitleDVTour.Size = new System.Drawing.Size(127, 25);
             this.lb_TitleDVTour.TabIndex = 2;
             this.lb_TitleDVTour.Text = "Dịch vụ tour";
             // 
@@ -307,11 +311,12 @@
             this.DGV_DVTour.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_DVTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DVTour.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DGV_DVTour.Location = new System.Drawing.Point(0, 75);
+            this.DGV_DVTour.Location = new System.Drawing.Point(0, 60);
+            this.DGV_DVTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DGV_DVTour.Name = "DGV_DVTour";
             this.DGV_DVTour.RowHeadersWidth = 62;
             this.DGV_DVTour.RowTemplate.Height = 28;
-            this.DGV_DVTour.Size = new System.Drawing.Size(1324, 154);
+            this.DGV_DVTour.Size = new System.Drawing.Size(1177, 123);
             this.DGV_DVTour.TabIndex = 1;
             // 
             // panel4
@@ -319,18 +324,19 @@
             this.panel4.Controls.Add(this.lb_TitleDVThuong);
             this.panel4.Controls.Add(this.DGV_DVThuong);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 379);
+            this.panel4.Location = new System.Drawing.Point(0, 303);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1324, 229);
+            this.panel4.Size = new System.Drawing.Size(1177, 183);
             this.panel4.TabIndex = 2;
             // 
             // lb_TitleDVThuong
             // 
             this.lb_TitleDVThuong.AutoSize = true;
             this.lb_TitleDVThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TitleDVThuong.Location = new System.Drawing.Point(592, 3);
+            this.lb_TitleDVThuong.Location = new System.Drawing.Point(526, 2);
             this.lb_TitleDVThuong.Name = "lb_TitleDVThuong";
-            this.lb_TitleDVThuong.Size = new System.Drawing.Size(184, 29);
+            this.lb_TitleDVThuong.Size = new System.Drawing.Size(156, 25);
             this.lb_TitleDVThuong.TabIndex = 2;
             this.lb_TitleDVThuong.Text = "Dịch vụ thường";
             // 
@@ -340,11 +346,12 @@
             this.DGV_DVThuong.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_DVThuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DVThuong.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DGV_DVThuong.Location = new System.Drawing.Point(0, 75);
+            this.DGV_DVThuong.Location = new System.Drawing.Point(0, 60);
+            this.DGV_DVThuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DGV_DVThuong.Name = "DGV_DVThuong";
             this.DGV_DVThuong.RowHeadersWidth = 62;
             this.DGV_DVThuong.RowTemplate.Height = 28;
-            this.DGV_DVThuong.Size = new System.Drawing.Size(1324, 154);
+            this.DGV_DVThuong.Size = new System.Drawing.Size(1177, 123);
             this.DGV_DVThuong.TabIndex = 1;
             // 
             // panel3
@@ -361,9 +368,10 @@
             this.panel3.Controls.Add(this.lbNVPhong);
             this.panel3.Controls.Add(this.lbTitlePhong);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 153);
+            this.panel3.Location = new System.Drawing.Point(0, 122);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1324, 226);
+            this.panel3.Size = new System.Drawing.Size(1177, 181);
             this.panel3.TabIndex = 1;
             // 
             // lbGetNotePhong
@@ -555,10 +563,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1324, 1050);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);

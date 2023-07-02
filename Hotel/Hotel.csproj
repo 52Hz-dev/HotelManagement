@@ -53,8 +53,9 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\PhieuDatPhongDAO.cs" />
-    <Compile Include="DTO\KHACHHANG.cs" />
+    <Compile Include="DAO\TinhTrangPhongDAO.cs" />
     <Compile Include="DTO\PHIEUDATPHONG.cs" />
+    <Compile Include="DTO\Room.cs" />
     <Compile Include="fCHECKIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +73,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TinhTrangPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TinhTrangPhong.Designer.cs">
+      <DependentUpon>TinhTrangPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -112,6 +119,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TinhTrangPhong.resx">
+      <DependentUpon>TinhTrangPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

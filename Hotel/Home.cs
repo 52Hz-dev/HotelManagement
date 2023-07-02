@@ -65,6 +65,7 @@ namespace Hotel
         private void button1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            callForm(new TinhTrangPhong());
         }
 
         private void button3_Click(object sender, EventArgs e)
