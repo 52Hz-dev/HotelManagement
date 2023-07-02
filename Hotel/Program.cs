@@ -17,8 +17,9 @@ namespace Hotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DataProvider data=new DataProvider();
-            Application.Run(new Form1());
+            //DataProvider data=new DataProvider();
+            DataProvider.getInstance();
+            Application.Run(new fCHECKIN());
         }
     }
 }

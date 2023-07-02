@@ -9,14 +9,28 @@ namespace Hotel.DTB
     {
         private SqlConnection _connection;
         private string connectionSTR;
-
+        public static DataProvider Instance { get; set; }
+        public static DataProvider getInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new DataProvider();
+                if (Instance._connection == null)
+                {
+                    Instance = null;
+                }
+            }
+            return Instance;
+        }
         public DataProvider()
         {
-            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP;Integrated Security=true";
-            
+            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP445;Integrated Security=true";
+            _connection = new SqlConnection(connectionSTR);
+            _connection.Open();
+
         }
 
-        public DataTable ExecuteQuery(string query, object[] parameter = null)
+        public  DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
 

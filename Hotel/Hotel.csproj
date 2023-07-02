@@ -51,11 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\PhieuDatPhongDAO.cs" />
+    <Compile Include="DTO\PHIEUDATPHONG.cs" />
     <Compile Include="fCHECKIN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fCHECKIN.Designer.cs">
       <DependentUpon>fCHECKIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fCHECKIN_THANHCONG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCHECKIN_THANHCONG.Designer.cs">
+      <DependentUpon>fCHECKIN_THANHCONG.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -79,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fCHECKIN.resx">
       <DependentUpon>fCHECKIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCHECKIN_THANHCONG.resx">
+      <DependentUpon>fCHECKIN_THANHCONG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -135,7 +146,11 @@
     <Content Include="img\Picture7.png" />
     <Content Include="img\Picture8.png" />
     <Content Include="img\Picture9.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\search %281%29.png" />
+    <None Include="Resources\refresh %281%29.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
