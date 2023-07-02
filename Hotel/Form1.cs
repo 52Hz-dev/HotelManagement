@@ -1,4 +1,6 @@
-﻿using Hotel.DTB;
+﻿using Hotel.DAO;
+using Hotel.DTB;
+using Hotel.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +33,11 @@ namespace Hotel
             int x = lBTitle.Size.Width / 2;
             int y = lBTitle.Size.Height;
             lBTitle.Location = new Point(panel2.Size.Width / 2 - x, y);
-            string query = "select * from KHACHHANG where MAKH = 'KH001'";
-            DataProvider provider = new DataProvider();
-            DataTable dt = new DataTable();
-            dt = provider.ExecuteQuery(query);
-            lbGetName.Text = dt.Rows[0]["HOTEN"].ToString();
-            lbGetCMND.Text = dt.Rows[0]["CMND"].ToString();
-            lbGetSDT.Text = dt.Rows[0]["SDT"].ToString();
-
+            DataRow data = KhachHangDAO.selectIfKH();
+            KHACHHANG kh = new KHACHHANG(data);
+            lbGetName.Text = kh.HOTEN1;
+            lbGetCMND.Text = kh.CMND1;
+            lbGetSDT.Text = kh.SDT1;
         }
         void loadListRoom()
         {

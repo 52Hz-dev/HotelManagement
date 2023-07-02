@@ -29,8 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lbGetTongTien = new System.Windows.Forms.Label();
+            this.lbTongTien = new System.Windows.Forms.Label();
+            this.lbGetTienMiniBar = new System.Windows.Forms.Label();
+            this.lbTienMiniBar = new System.Windows.Forms.Label();
+            this.lbGetTienDVTour = new System.Windows.Forms.Label();
+            this.lbTienDVTour = new System.Windows.Forms.Label();
+            this.lbGetTienDVThuong = new System.Windows.Forms.Label();
+            this.lbTienDVThuong = new System.Windows.Forms.Label();
+            this.lbTitleTongTien = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btn_ThanhToan = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.DGV_MiniBar = new System.Windows.Forms.DataGridView();
             this.lb_TitleMiniBar = new System.Windows.Forms.Label();
@@ -41,38 +53,27 @@
             this.lb_TitleDVThuong = new System.Windows.Forms.Label();
             this.DGV_DVThuong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbName = new System.Windows.Forms.Label();
-            this.lbGetName = new System.Windows.Forms.Label();
-            this.lbCMND = new System.Windows.Forms.Label();
-            this.lbGetCMND = new System.Windows.Forms.Label();
-            this.lbSDT = new System.Windows.Forms.Label();
-            this.lBTitle = new System.Windows.Forms.Label();
-            this.lbGetSDT = new System.Windows.Forms.Label();
-            this.lbTitlePhong = new System.Windows.Forms.Label();
-            this.lbNVPhong = new System.Windows.Forms.Label();
-            this.lbGetNVPhong = new System.Windows.Forms.Label();
-            this.lbNgayDat = new System.Windows.Forms.Label();
-            this.lbGetNgayDat = new System.Windows.Forms.Label();
-            this.lbNgayDen = new System.Windows.Forms.Label();
-            this.lbGetNgayDen = new System.Windows.Forms.Label();
-            this.lbSoNgay = new System.Windows.Forms.Label();
-            this.lbGetSoNgay = new System.Windows.Forms.Label();
-            this.lbNotePhong = new System.Windows.Forms.Label();
             this.lbGetNotePhong = new System.Windows.Forms.Label();
-            this.btn_ThanhToan = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.lbTitleTongTien = new System.Windows.Forms.Label();
-            this.lbTienDVThuong = new System.Windows.Forms.Label();
-            this.lbGetTienDVThuong = new System.Windows.Forms.Label();
-            this.lbTienDVTour = new System.Windows.Forms.Label();
-            this.lbGetTienDVTour = new System.Windows.Forms.Label();
-            this.lbTienMiniBar = new System.Windows.Forms.Label();
-            this.lbGetTienMiniBar = new System.Windows.Forms.Label();
-            this.lbTongTien = new System.Windows.Forms.Label();
-            this.lbGetTongTien = new System.Windows.Forms.Label();
+            this.lbNotePhong = new System.Windows.Forms.Label();
+            this.lbGetSoNgay = new System.Windows.Forms.Label();
+            this.lbSoNgay = new System.Windows.Forms.Label();
+            this.lbGetNgayDen = new System.Windows.Forms.Label();
+            this.lbNgayDen = new System.Windows.Forms.Label();
+            this.lbGetNgayDat = new System.Windows.Forms.Label();
+            this.lbNgayDat = new System.Windows.Forms.Label();
+            this.lbGetNVPhong = new System.Windows.Forms.Label();
+            this.lbNVPhong = new System.Windows.Forms.Label();
+            this.lbTitlePhong = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbGetSDT = new System.Windows.Forms.Label();
+            this.lBTitle = new System.Windows.Forms.Label();
+            this.lbSDT = new System.Windows.Forms.Label();
+            this.lbGetCMND = new System.Windows.Forms.Label();
+            this.lbCMND = new System.Windows.Forms.Label();
+            this.lbGetName = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -83,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DVThuong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,14 +98,118 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1324, 1276);
+            this.panel1.Size = new System.Drawing.Size(1324, 1050);
             this.panel1.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.lbGetTongTien);
+            this.panel9.Controls.Add(this.lbTongTien);
+            this.panel9.Controls.Add(this.lbGetTienMiniBar);
+            this.panel9.Controls.Add(this.lbTienMiniBar);
+            this.panel9.Controls.Add(this.lbGetTienDVTour);
+            this.panel9.Controls.Add(this.lbTienDVTour);
+            this.panel9.Controls.Add(this.lbGetTienDVThuong);
+            this.panel9.Controls.Add(this.lbTienDVThuong);
+            this.panel9.Controls.Add(this.lbTitleTongTien);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 1027);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1324, 0);
+            this.panel9.TabIndex = 6;
+            // 
+            // lbGetTongTien
+            // 
+            this.lbGetTongTien.AutoSize = true;
+            this.lbGetTongTien.ForeColor = System.Drawing.Color.Red;
+            this.lbGetTongTien.Location = new System.Drawing.Point(98, 141);
+            this.lbGetTongTien.Name = "lbGetTongTien";
+            this.lbGetTongTien.Size = new System.Drawing.Size(102, 20);
+            this.lbGetTongTien.TabIndex = 8;
+            this.lbGetTongTien.Text = "GetTongTien";
+            // 
+            // lbTongTien
+            // 
+            this.lbTongTien.AutoSize = true;
+            this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTongTien.Location = new System.Drawing.Point(3, 141);
+            this.lbTongTien.Name = "lbTongTien";
+            this.lbTongTien.Size = new System.Drawing.Size(89, 20);
+            this.lbTongTien.TabIndex = 7;
+            this.lbTongTien.Text = "Tổng tiền:";
+            // 
+            // lbGetTienMiniBar
+            // 
+            this.lbGetTienMiniBar.AutoSize = true;
+            this.lbGetTienMiniBar.Location = new System.Drawing.Point(89, 109);
+            this.lbGetTienMiniBar.Name = "lbGetTienMiniBar";
+            this.lbGetTienMiniBar.Size = new System.Drawing.Size(119, 20);
+            this.lbGetTienMiniBar.TabIndex = 6;
+            this.lbGetTienMiniBar.Text = "GetTienMiniBar";
+            // 
+            // lbTienMiniBar
+            // 
+            this.lbTienMiniBar.AutoSize = true;
+            this.lbTienMiniBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienMiniBar.Location = new System.Drawing.Point(4, 109);
+            this.lbTienMiniBar.Name = "lbTienMiniBar";
+            this.lbTienMiniBar.Size = new System.Drawing.Size(79, 20);
+            this.lbTienMiniBar.TabIndex = 5;
+            this.lbTienMiniBar.Text = "Mini Bar:";
+            // 
+            // lbGetTienDVTour
+            // 
+            this.lbGetTienDVTour.AutoSize = true;
+            this.lbGetTienDVTour.Location = new System.Drawing.Point(120, 77);
+            this.lbGetTienDVTour.Name = "lbGetTienDVTour";
+            this.lbGetTienDVTour.Size = new System.Drawing.Size(121, 20);
+            this.lbGetTienDVTour.TabIndex = 4;
+            this.lbGetTienDVTour.Text = "GetTienDVTour";
+            // 
+            // lbTienDVTour
+            // 
+            this.lbTienDVTour.AutoSize = true;
+            this.lbTienDVTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienDVTour.Location = new System.Drawing.Point(4, 77);
+            this.lbTienDVTour.Name = "lbTienDVTour";
+            this.lbTienDVTour.Size = new System.Drawing.Size(110, 20);
+            this.lbTienDVTour.TabIndex = 3;
+            this.lbTienDVTour.Text = "Dịch vụ tour:";
+            // 
+            // lbGetTienDVThuong
+            // 
+            this.lbGetTienDVThuong.AutoSize = true;
+            this.lbGetTienDVThuong.Location = new System.Drawing.Point(144, 42);
+            this.lbGetTienDVThuong.Name = "lbGetTienDVThuong";
+            this.lbGetTienDVThuong.Size = new System.Drawing.Size(143, 20);
+            this.lbGetTienDVThuong.TabIndex = 2;
+            this.lbGetTienDVThuong.Text = "GetTienDVThuong";
+            // 
+            // lbTienDVThuong
+            // 
+            this.lbTienDVThuong.AutoSize = true;
+            this.lbTienDVThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienDVThuong.Location = new System.Drawing.Point(4, 42);
+            this.lbTienDVThuong.Name = "lbTienDVThuong";
+            this.lbTienDVThuong.Size = new System.Drawing.Size(134, 20);
+            this.lbTienDVThuong.TabIndex = 1;
+            this.lbTienDVThuong.Text = "Dịch vụ thường:";
+            // 
+            // lbTitleTongTien
+            // 
+            this.lbTitleTongTien.AutoSize = true;
+            this.lbTitleTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitleTongTien.Location = new System.Drawing.Point(631, 4);
+            this.lbTitleTongTien.Name = "lbTitleTongTien";
+            this.lbTitleTongTien.Size = new System.Drawing.Size(124, 29);
+            this.lbTitleTongTien.TabIndex = 0;
+            this.lbTitleTongTien.Text = "Tổng tiền";
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 1206);
+            this.panel7.Location = new System.Drawing.Point(0, 980);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1324, 70);
             this.panel7.TabIndex = 5;
@@ -119,6 +223,28 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(350, 70);
             this.panel8.TabIndex = 1;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(0, 0);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(150, 70);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "In hóa đơn";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // btn_ThanhToan
+            // 
+            this.btn_ThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_ThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThanhToan.Location = new System.Drawing.Point(200, 0);
+            this.btn_ThanhToan.Name = "btn_ThanhToan";
+            this.btn_ThanhToan.Size = new System.Drawing.Size(150, 70);
+            this.btn_ThanhToan.TabIndex = 0;
+            this.btn_ThanhToan.Text = "Thanh toán";
+            this.btn_ThanhToan.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -240,6 +366,111 @@
             this.panel3.Size = new System.Drawing.Size(1324, 226);
             this.panel3.TabIndex = 1;
             // 
+            // lbGetNotePhong
+            // 
+            this.lbGetNotePhong.AutoSize = true;
+            this.lbGetNotePhong.Location = new System.Drawing.Point(82, 203);
+            this.lbGetNotePhong.Name = "lbGetNotePhong";
+            this.lbGetNotePhong.Size = new System.Drawing.Size(116, 20);
+            this.lbGetNotePhong.TabIndex = 10;
+            this.lbGetNotePhong.Text = "GetNotePhong";
+            // 
+            // lbNotePhong
+            // 
+            this.lbNotePhong.AutoSize = true;
+            this.lbNotePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNotePhong.Location = new System.Drawing.Point(4, 203);
+            this.lbNotePhong.Name = "lbNotePhong";
+            this.lbNotePhong.Size = new System.Drawing.Size(81, 20);
+            this.lbNotePhong.TabIndex = 9;
+            this.lbNotePhong.Text = "Ghi chú: ";
+            // 
+            // lbGetSoNgay
+            // 
+            this.lbGetSoNgay.AutoSize = true;
+            this.lbGetSoNgay.Location = new System.Drawing.Point(157, 167);
+            this.lbGetSoNgay.Name = "lbGetSoNgay";
+            this.lbGetSoNgay.Size = new System.Drawing.Size(92, 20);
+            this.lbGetSoNgay.TabIndex = 8;
+            this.lbGetSoNgay.Text = "GetSoNgay";
+            // 
+            // lbSoNgay
+            // 
+            this.lbSoNgay.AutoSize = true;
+            this.lbSoNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSoNgay.Location = new System.Drawing.Point(3, 167);
+            this.lbSoNgay.Name = "lbSoNgay";
+            this.lbSoNgay.Size = new System.Drawing.Size(148, 20);
+            this.lbSoNgay.TabIndex = 7;
+            this.lbSoNgay.Text = "Thời gian lưu trú: ";
+            // 
+            // lbGetNgayDen
+            // 
+            this.lbGetNgayDen.AutoSize = true;
+            this.lbGetNgayDen.Location = new System.Drawing.Point(104, 130);
+            this.lbGetNgayDen.Name = "lbGetNgayDen";
+            this.lbGetNgayDen.Size = new System.Drawing.Size(102, 20);
+            this.lbGetNgayDen.TabIndex = 6;
+            this.lbGetNgayDen.Text = "GetNgayDen";
+            // 
+            // lbNgayDen
+            // 
+            this.lbNgayDen.AutoSize = true;
+            this.lbNgayDen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNgayDen.Location = new System.Drawing.Point(4, 130);
+            this.lbNgayDen.Name = "lbNgayDen";
+            this.lbNgayDen.Size = new System.Drawing.Size(94, 20);
+            this.lbNgayDen.TabIndex = 5;
+            this.lbNgayDen.Text = "Ngày đến: ";
+            // 
+            // lbGetNgayDat
+            // 
+            this.lbGetNgayDat.AutoSize = true;
+            this.lbGetNgayDat.Location = new System.Drawing.Point(100, 91);
+            this.lbGetNgayDat.Name = "lbGetNgayDat";
+            this.lbGetNgayDat.Size = new System.Drawing.Size(98, 20);
+            this.lbGetNgayDat.TabIndex = 4;
+            this.lbGetNgayDat.Text = "GetNgayDat";
+            // 
+            // lbNgayDat
+            // 
+            this.lbNgayDat.AutoSize = true;
+            this.lbNgayDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNgayDat.Location = new System.Drawing.Point(4, 91);
+            this.lbNgayDat.Name = "lbNgayDat";
+            this.lbNgayDat.Size = new System.Drawing.Size(90, 20);
+            this.lbNgayDat.TabIndex = 3;
+            this.lbNgayDat.Text = "Ngày đặt: ";
+            // 
+            // lbGetNVPhong
+            // 
+            this.lbGetNVPhong.AutoSize = true;
+            this.lbGetNVPhong.Location = new System.Drawing.Point(184, 54);
+            this.lbGetNVPhong.Name = "lbGetNVPhong";
+            this.lbGetNVPhong.Size = new System.Drawing.Size(104, 20);
+            this.lbGetNVPhong.TabIndex = 2;
+            this.lbGetNVPhong.Text = "GetNVPhong";
+            // 
+            // lbNVPhong
+            // 
+            this.lbNVPhong.AutoSize = true;
+            this.lbNVPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNVPhong.Location = new System.Drawing.Point(4, 54);
+            this.lbNVPhong.Name = "lbNVPhong";
+            this.lbNVPhong.Size = new System.Drawing.Size(173, 20);
+            this.lbNVPhong.TabIndex = 1;
+            this.lbNVPhong.Text = "Nhân viên tiếp nhận:";
+            // 
+            // lbTitlePhong
+            // 
+            this.lbTitlePhong.AutoSize = true;
+            this.lbTitlePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitlePhong.Location = new System.Drawing.Point(564, 3);
+            this.lbTitlePhong.Name = "lbTitlePhong";
+            this.lbTitlePhong.Size = new System.Drawing.Size(203, 29);
+            this.lbTitlePhong.TabIndex = 0;
+            this.lbTitlePhong.Text = "Thông tin phòng";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lbGetSDT);
@@ -255,53 +486,14 @@
             this.panel2.Size = new System.Drawing.Size(1324, 153);
             this.panel2.TabIndex = 0;
             // 
-            // lbName
+            // lbGetSDT
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(4, 56);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(73, 20);
-            this.lbName.TabIndex = 0;
-            this.lbName.Text = "Họ tên: ";
-            // 
-            // lbGetName
-            // 
-            this.lbGetName.AutoSize = true;
-            this.lbGetName.Location = new System.Drawing.Point(73, 56);
-            this.lbGetName.Name = "lbGetName";
-            this.lbGetName.Size = new System.Drawing.Size(78, 20);
-            this.lbGetName.TabIndex = 1;
-            this.lbGetName.Text = "GetName";
-            // 
-            // lbCMND
-            // 
-            this.lbCMND.AutoSize = true;
-            this.lbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCMND.Location = new System.Drawing.Point(4, 94);
-            this.lbCMND.Name = "lbCMND";
-            this.lbCMND.Size = new System.Drawing.Size(70, 20);
-            this.lbCMND.TabIndex = 2;
-            this.lbCMND.Text = "CMND: ";
-            // 
-            // lbGetCMND
-            // 
-            this.lbGetCMND.AutoSize = true;
-            this.lbGetCMND.Location = new System.Drawing.Point(74, 94);
-            this.lbGetCMND.Name = "lbGetCMND";
-            this.lbGetCMND.Size = new System.Drawing.Size(83, 20);
-            this.lbGetCMND.TabIndex = 3;
-            this.lbGetCMND.Text = "GetCMND";
-            // 
-            // lbSDT
-            // 
-            this.lbSDT.AutoSize = true;
-            this.lbSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSDT.Location = new System.Drawing.Point(4, 132);
-            this.lbSDT.Name = "lbSDT";
-            this.lbSDT.Size = new System.Drawing.Size(49, 20);
-            this.lbSDT.TabIndex = 4;
-            this.lbSDT.Text = "SĐT:";
+            this.lbGetSDT.AutoSize = true;
+            this.lbGetSDT.Location = new System.Drawing.Point(73, 131);
+            this.lbGetSDT.Name = "lbGetSDT";
+            this.lbGetSDT.Size = new System.Drawing.Size(68, 20);
+            this.lbGetSDT.TabIndex = 6;
+            this.lbGetSDT.Text = "GetSDT";
             // 
             // lBTitle
             // 
@@ -313,255 +505,65 @@
             this.lBTitle.TabIndex = 5;
             this.lBTitle.Text = "Thông tin khách hàng";
             // 
-            // lbGetSDT
+            // lbSDT
             // 
-            this.lbGetSDT.AutoSize = true;
-            this.lbGetSDT.Location = new System.Drawing.Point(73, 131);
-            this.lbGetSDT.Name = "lbGetSDT";
-            this.lbGetSDT.Size = new System.Drawing.Size(68, 20);
-            this.lbGetSDT.TabIndex = 6;
-            this.lbGetSDT.Text = "GetSDT";
+            this.lbSDT.AutoSize = true;
+            this.lbSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSDT.Location = new System.Drawing.Point(4, 132);
+            this.lbSDT.Name = "lbSDT";
+            this.lbSDT.Size = new System.Drawing.Size(49, 20);
+            this.lbSDT.TabIndex = 4;
+            this.lbSDT.Text = "SĐT:";
             // 
-            // lbTitlePhong
+            // lbGetCMND
             // 
-            this.lbTitlePhong.AutoSize = true;
-            this.lbTitlePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitlePhong.Location = new System.Drawing.Point(564, 3);
-            this.lbTitlePhong.Name = "lbTitlePhong";
-            this.lbTitlePhong.Size = new System.Drawing.Size(203, 29);
-            this.lbTitlePhong.TabIndex = 0;
-            this.lbTitlePhong.Text = "Thông tin phòng";
+            this.lbGetCMND.AutoSize = true;
+            this.lbGetCMND.Location = new System.Drawing.Point(74, 94);
+            this.lbGetCMND.Name = "lbGetCMND";
+            this.lbGetCMND.Size = new System.Drawing.Size(83, 20);
+            this.lbGetCMND.TabIndex = 3;
+            this.lbGetCMND.Text = "GetCMND";
             // 
-            // lbNVPhong
+            // lbCMND
             // 
-            this.lbNVPhong.AutoSize = true;
-            this.lbNVPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNVPhong.Location = new System.Drawing.Point(4, 54);
-            this.lbNVPhong.Name = "lbNVPhong";
-            this.lbNVPhong.Size = new System.Drawing.Size(173, 20);
-            this.lbNVPhong.TabIndex = 1;
-            this.lbNVPhong.Text = "Nhân viên tiếp nhận:";
+            this.lbCMND.AutoSize = true;
+            this.lbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCMND.Location = new System.Drawing.Point(4, 94);
+            this.lbCMND.Name = "lbCMND";
+            this.lbCMND.Size = new System.Drawing.Size(70, 20);
+            this.lbCMND.TabIndex = 2;
+            this.lbCMND.Text = "CMND: ";
             // 
-            // lbGetNVPhong
+            // lbGetName
             // 
-            this.lbGetNVPhong.AutoSize = true;
-            this.lbGetNVPhong.Location = new System.Drawing.Point(184, 54);
-            this.lbGetNVPhong.Name = "lbGetNVPhong";
-            this.lbGetNVPhong.Size = new System.Drawing.Size(104, 20);
-            this.lbGetNVPhong.TabIndex = 2;
-            this.lbGetNVPhong.Text = "GetNVPhong";
+            this.lbGetName.AutoSize = true;
+            this.lbGetName.Location = new System.Drawing.Point(73, 56);
+            this.lbGetName.Name = "lbGetName";
+            this.lbGetName.Size = new System.Drawing.Size(78, 20);
+            this.lbGetName.TabIndex = 1;
+            this.lbGetName.Text = "GetName";
             // 
-            // lbNgayDat
+            // lbName
             // 
-            this.lbNgayDat.AutoSize = true;
-            this.lbNgayDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgayDat.Location = new System.Drawing.Point(4, 91);
-            this.lbNgayDat.Name = "lbNgayDat";
-            this.lbNgayDat.Size = new System.Drawing.Size(90, 20);
-            this.lbNgayDat.TabIndex = 3;
-            this.lbNgayDat.Text = "Ngày đặt: ";
-            // 
-            // lbGetNgayDat
-            // 
-            this.lbGetNgayDat.AutoSize = true;
-            this.lbGetNgayDat.Location = new System.Drawing.Point(100, 91);
-            this.lbGetNgayDat.Name = "lbGetNgayDat";
-            this.lbGetNgayDat.Size = new System.Drawing.Size(98, 20);
-            this.lbGetNgayDat.TabIndex = 4;
-            this.lbGetNgayDat.Text = "GetNgayDat";
-            // 
-            // lbNgayDen
-            // 
-            this.lbNgayDen.AutoSize = true;
-            this.lbNgayDen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgayDen.Location = new System.Drawing.Point(4, 130);
-            this.lbNgayDen.Name = "lbNgayDen";
-            this.lbNgayDen.Size = new System.Drawing.Size(94, 20);
-            this.lbNgayDen.TabIndex = 5;
-            this.lbNgayDen.Text = "Ngày đến: ";
-            // 
-            // lbGetNgayDen
-            // 
-            this.lbGetNgayDen.AutoSize = true;
-            this.lbGetNgayDen.Location = new System.Drawing.Point(104, 130);
-            this.lbGetNgayDen.Name = "lbGetNgayDen";
-            this.lbGetNgayDen.Size = new System.Drawing.Size(102, 20);
-            this.lbGetNgayDen.TabIndex = 6;
-            this.lbGetNgayDen.Text = "GetNgayDen";
-            // 
-            // lbSoNgay
-            // 
-            this.lbSoNgay.AutoSize = true;
-            this.lbSoNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSoNgay.Location = new System.Drawing.Point(3, 167);
-            this.lbSoNgay.Name = "lbSoNgay";
-            this.lbSoNgay.Size = new System.Drawing.Size(148, 20);
-            this.lbSoNgay.TabIndex = 7;
-            this.lbSoNgay.Text = "Thời gian lưu trú: ";
-            // 
-            // lbGetSoNgay
-            // 
-            this.lbGetSoNgay.AutoSize = true;
-            this.lbGetSoNgay.Location = new System.Drawing.Point(157, 167);
-            this.lbGetSoNgay.Name = "lbGetSoNgay";
-            this.lbGetSoNgay.Size = new System.Drawing.Size(92, 20);
-            this.lbGetSoNgay.TabIndex = 8;
-            this.lbGetSoNgay.Text = "GetSoNgay";
-            // 
-            // lbNotePhong
-            // 
-            this.lbNotePhong.AutoSize = true;
-            this.lbNotePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNotePhong.Location = new System.Drawing.Point(4, 203);
-            this.lbNotePhong.Name = "lbNotePhong";
-            this.lbNotePhong.Size = new System.Drawing.Size(81, 20);
-            this.lbNotePhong.TabIndex = 9;
-            this.lbNotePhong.Text = "Ghi chú: ";
-            // 
-            // lbGetNotePhong
-            // 
-            this.lbGetNotePhong.AutoSize = true;
-            this.lbGetNotePhong.Location = new System.Drawing.Point(82, 203);
-            this.lbGetNotePhong.Name = "lbGetNotePhong";
-            this.lbGetNotePhong.Size = new System.Drawing.Size(116, 20);
-            this.lbGetNotePhong.TabIndex = 10;
-            this.lbGetNotePhong.Text = "GetNotePhong";
-            // 
-            // btn_ThanhToan
-            // 
-            this.btn_ThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_ThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThanhToan.Location = new System.Drawing.Point(200, 0);
-            this.btn_ThanhToan.Name = "btn_ThanhToan";
-            this.btn_ThanhToan.Size = new System.Drawing.Size(150, 70);
-            this.btn_ThanhToan.TabIndex = 0;
-            this.btn_ThanhToan.Text = "Thanh toán";
-            this.btn_ThanhToan.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.lbGetTongTien);
-            this.panel9.Controls.Add(this.lbTongTien);
-            this.panel9.Controls.Add(this.lbGetTienMiniBar);
-            this.panel9.Controls.Add(this.lbTienMiniBar);
-            this.panel9.Controls.Add(this.lbGetTienDVTour);
-            this.panel9.Controls.Add(this.lbTienDVTour);
-            this.panel9.Controls.Add(this.lbGetTienDVThuong);
-            this.panel9.Controls.Add(this.lbTienDVThuong);
-            this.panel9.Controls.Add(this.lbTitleTongTien);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 1027);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1324, 179);
-            this.panel9.TabIndex = 6;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(0, 0);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(150, 70);
-            this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "In hóa đơn";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            // 
-            // lbTitleTongTien
-            // 
-            this.lbTitleTongTien.AutoSize = true;
-            this.lbTitleTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitleTongTien.Location = new System.Drawing.Point(631, 4);
-            this.lbTitleTongTien.Name = "lbTitleTongTien";
-            this.lbTitleTongTien.Size = new System.Drawing.Size(124, 29);
-            this.lbTitleTongTien.TabIndex = 0;
-            this.lbTitleTongTien.Text = "Tổng tiền";
-            // 
-            // lbTienDVThuong
-            // 
-            this.lbTienDVThuong.AutoSize = true;
-            this.lbTienDVThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienDVThuong.Location = new System.Drawing.Point(4, 42);
-            this.lbTienDVThuong.Name = "lbTienDVThuong";
-            this.lbTienDVThuong.Size = new System.Drawing.Size(134, 20);
-            this.lbTienDVThuong.TabIndex = 1;
-            this.lbTienDVThuong.Text = "Dịch vụ thường:";
-            // 
-            // lbGetTienDVThuong
-            // 
-            this.lbGetTienDVThuong.AutoSize = true;
-            this.lbGetTienDVThuong.Location = new System.Drawing.Point(144, 42);
-            this.lbGetTienDVThuong.Name = "lbGetTienDVThuong";
-            this.lbGetTienDVThuong.Size = new System.Drawing.Size(143, 20);
-            this.lbGetTienDVThuong.TabIndex = 2;
-            this.lbGetTienDVThuong.Text = "GetTienDVThuong";
-            // 
-            // lbTienDVTour
-            // 
-            this.lbTienDVTour.AutoSize = true;
-            this.lbTienDVTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienDVTour.Location = new System.Drawing.Point(4, 77);
-            this.lbTienDVTour.Name = "lbTienDVTour";
-            this.lbTienDVTour.Size = new System.Drawing.Size(110, 20);
-            this.lbTienDVTour.TabIndex = 3;
-            this.lbTienDVTour.Text = "Dịch vụ tour:";
-            // 
-            // lbGetTienDVTour
-            // 
-            this.lbGetTienDVTour.AutoSize = true;
-            this.lbGetTienDVTour.Location = new System.Drawing.Point(120, 77);
-            this.lbGetTienDVTour.Name = "lbGetTienDVTour";
-            this.lbGetTienDVTour.Size = new System.Drawing.Size(121, 20);
-            this.lbGetTienDVTour.TabIndex = 4;
-            this.lbGetTienDVTour.Text = "GetTienDVTour";
-            // 
-            // lbTienMiniBar
-            // 
-            this.lbTienMiniBar.AutoSize = true;
-            this.lbTienMiniBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienMiniBar.Location = new System.Drawing.Point(4, 109);
-            this.lbTienMiniBar.Name = "lbTienMiniBar";
-            this.lbTienMiniBar.Size = new System.Drawing.Size(79, 20);
-            this.lbTienMiniBar.TabIndex = 5;
-            this.lbTienMiniBar.Text = "Mini Bar:";
-            // 
-            // lbGetTienMiniBar
-            // 
-            this.lbGetTienMiniBar.AutoSize = true;
-            this.lbGetTienMiniBar.Location = new System.Drawing.Point(89, 109);
-            this.lbGetTienMiniBar.Name = "lbGetTienMiniBar";
-            this.lbGetTienMiniBar.Size = new System.Drawing.Size(119, 20);
-            this.lbGetTienMiniBar.TabIndex = 6;
-            this.lbGetTienMiniBar.Text = "GetTienMiniBar";
-            // 
-            // lbTongTien
-            // 
-            this.lbTongTien.AutoSize = true;
-            this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongTien.Location = new System.Drawing.Point(3, 141);
-            this.lbTongTien.Name = "lbTongTien";
-            this.lbTongTien.Size = new System.Drawing.Size(89, 20);
-            this.lbTongTien.TabIndex = 7;
-            this.lbTongTien.Text = "Tổng tiền:";
-            // 
-            // lbGetTongTien
-            // 
-            this.lbGetTongTien.AutoSize = true;
-            this.lbGetTongTien.ForeColor = System.Drawing.Color.Red;
-            this.lbGetTongTien.Location = new System.Drawing.Point(98, 141);
-            this.lbGetTongTien.Name = "lbGetTongTien";
-            this.lbGetTongTien.Size = new System.Drawing.Size(102, 20);
-            this.lbGetTongTien.TabIndex = 8;
-            this.lbGetTongTien.Text = "GetTongTien";
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(4, 56);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(73, 20);
+            this.lbName.TabIndex = 0;
+            this.lbName.Text = "Họ tên: ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1324, 1276);
+            this.ClientSize = new System.Drawing.Size(1324, 1050);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -577,8 +579,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }

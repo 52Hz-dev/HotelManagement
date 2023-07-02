@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\PhieuDatPhongDAO.cs" />
+    <Compile Include="DTO\KHACHHANG.cs" />
     <Compile Include="DTO\PHIEUDATPHONG.cs" />
     <Compile Include="fCHECKIN.cs">
       <SubType>Form</SubType>
