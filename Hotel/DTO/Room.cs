@@ -13,7 +13,6 @@ namespace Hotel.DTO
     internal class Room
     {
         private string _maph;
-
         private string _trangthai;
         private string _loaiphong;
         private int _dondep;

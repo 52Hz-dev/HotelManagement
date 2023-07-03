@@ -270,7 +270,7 @@
             this.DGV_MiniBar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_MiniBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DGV_MiniBar.Location = new System.Drawing.Point(0, 52);
-            this.DGV_MiniBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGV_MiniBar.Margin = new System.Windows.Forms.Padding(4);
             this.DGV_MiniBar.Name = "DGV_MiniBar";
             this.DGV_MiniBar.RowHeadersWidth = 62;
             this.DGV_MiniBar.Size = new System.Drawing.Size(1177, 100);

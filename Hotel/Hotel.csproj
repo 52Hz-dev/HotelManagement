@@ -50,10 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CTPhieuDatPhongDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\KhachHangDAO.cs" />
+    <Compile Include="DAO\PhieuDatPhong.cs" />
     <Compile Include="DAO\PhieuDatPhongDAO.cs" />
+    <Compile Include="DAO\PhongCTDAO.cs" />
     <Compile Include="DAO\TinhTrangPhongDAO.cs" />
+    <Compile Include="DTO\CTPhieuDatPhong.cs" />
+    <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\PHIEUDATPHONG.cs" />
+    <Compile Include="DTO\PhongCT.cs" />
     <Compile Include="DTO\Room.cs" />
     <Compile Include="fCHECKIN.cs">
       <SubType>Form</SubType>
@@ -67,6 +74,10 @@
     <Compile Include="fCHECKIN_THANHCONG.Designer.cs">
       <DependentUpon>fCHECKIN_THANHCONG.cs</DependentUpon>
     </Compile>
+    <Compile Include="fDatPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDatPhong.Designer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
