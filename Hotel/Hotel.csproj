@@ -59,6 +59,8 @@
     <Compile Include="DAO\CTPhieuDatPhongDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\DichVuDAO.cs" />
+    <Compile Include="DAO\LoaiPhongDAO.cs" />
+    <Compile Include="DAO\PhieuSuDungDichVuDAO.cs" />
     <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\PhieuSuDungDichVuDAO.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="DAO\PhongCTDAO.cs" />
     <Compile Include="DAO\TinhTrangPhongDAO.cs" />
     <Compile Include="DTO\DICHVU.cs" />
+    <Compile Include="DTO\LOAIPHONG.cs" />
     <Compile Include="DTO\HoaDon.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\PHIEUSUDUNGDICHVU.cs" />
