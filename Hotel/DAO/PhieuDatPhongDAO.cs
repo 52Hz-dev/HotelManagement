@@ -38,5 +38,14 @@ namespace Hotel.DAO
             if (count > 0) return true;
             else return false;
         }
+        public static DataRow InfoRoom()
+        {
+            string query = "select 	PDP.MAPDP, PDP.NGAYDAT, PDP.NGAYDEN, PDP.SODEMLUUTRU, PDP.GHICHU, PDP.TIENDATCOC, " +
+                            "PDP.NGUOIDAT, PDP.HTTHANHTOAN, PDP.MANGUOILAP, PDP.NGAYCHECKIN " +
+                            "from PHIEUDATPHONG AS PDP, KHACHHANG " +
+                            "where KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PDP.NGUOIDAT";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            return dt.Rows[0];
+        }
     }
 }

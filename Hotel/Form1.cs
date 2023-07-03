@@ -33,10 +33,10 @@ namespace Hotel
             int x = lBTitle.Size.Width / 2;
             int y = lBTitle.Size.Height;
             lBTitle.Location = new Point(panel2.Size.Width / 2 - x, y);
-            KHACHHANG kh = new KHACHHANG(KhachHangDAO.selectIfKH());
-            lbGetName.Text = kh.HOTEN1;
-            lbGetCMND.Text = kh.CMND1;
-            lbGetSDT.Text = kh.SDT1;
+            KhachHang kh = new KhachHang(KhachHangDAO.selectIfKH());
+            lbGetName.Text = kh.HoTen;
+            lbGetCMND.Text = kh.CMND;
+            lbGetSDT.Text = kh.SDT;
         }
         void loadListRoom()
         {

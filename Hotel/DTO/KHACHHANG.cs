@@ -1,42 +1,76 @@
-﻿using System;
+﻿using Hotel.DAO;
+using Hotel.DTB;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Hotel.DTO
 {
-    internal class KHACHHANG
+    public class KhachHang
     {
-        private String MAKH;
-        private String HOTEN;
-        private String EMAIL;
-        private String CMND;
-        private String SDT;
-        private String FAX;
-        private String DIACHI;
+        public string MaKH { get; set; }
+        public string HoTen { get; set; }
+        public string Email { get; set; }
+        public string CMND { get; set; }
+        public string SDT { get; set; }
+        public string FAX { get; set; }
+        public string DiaChi { get; set; }
 
-        public string MAKH1 { get => MAKH; set => MAKH = value; }
-        public string HOTEN1 { get => HOTEN; set => HOTEN = value; }
-        public string EMAIL1 { get => EMAIL; set => EMAIL = value; }
-        public string CMND1 { get => CMND; set => CMND = value; }
-        public string SDT1 { get => SDT; set => SDT = value; }
-        public string FAX1 { get => FAX; set => FAX = value; }
-        public string DIACHI1 { get => DIACHI; set => DIACHI = value; }
-
-        public KHACHHANG(DataRow row)
-        {
-            this.MAKH = (string)row["MAKH"].ToString();
-            this.HOTEN = (string)row["HOTEN"].ToString();
-            this.EMAIL = (string)row["EMAIL"].ToString();
-            this.CMND = (string)row["CMND"].ToString();
-            this.SDT = (string)row["SDT"].ToString();
-            this.FAX = (string)row["FAX"].ToString();
-            this.DIACHI = (string)row["DIACHI"].ToString();
+        public KhachHang(DataRow row) {
+            MaKH = row["MaKH"].ToString();
+            HoTen = row["HOTEN"].ToString();
+            Email = row["EMAIL"].ToString();
+            CMND = row["CMND"].ToString();
+            SDT = row["SDT"].ToString();
+            FAX = row["FAX"].ToString();
+            DiaChi = row["DIACHI"].ToString();
         }
+
+        public KhachHang(string maKH, string hoTen, string email, string cMND, string sDT, string fAX, string diaChi)
+        {
+            MaKH = maKH;
+            HoTen = hoTen;
+            Email = email;
+            CMND = cMND;
+            SDT = sDT;
+            FAX = fAX;
+            DiaChi = diaChi;
+        }
+
+        //public static bool CheckExistCustomerByTelNum(string telNumber)
+        //{
+        //    DataTable queryResult = KhachHangDAO.Instance.GetCustomerByTelNumber(telNumber);
+        //    int count = queryResult.Rows.Count;
+        //    if (count > 0) return true;
+        //    else return false;
+        //}
+
+        public static KhachHang GetCustomerByTelNum(string telNumber)
+        {
+            DataTable data = KhachHangDAO.GetCustomerByTelNumber(telNumber);
+            if (data.Rows.Count == 0) return null;
+            KhachHang result = new KhachHang(data.Rows[0]);
+            return result;
+        }
+
+        public static string GenerateNewCustomerID()
+        {
+            var lastId = KhachHangDAO.GetLastCustomerID();
+            int newCustomerNumber = (Int32.Parse(lastId.Substring(2)) + 1);
+            return newCustomerNumber < 100 ? $"KH0{newCustomerNumber}" : $"KH{newCustomerNumber}";
+        }
+
+        public static bool AddNewCustomer(KhachHang newCustomer)
+        {
+            return KhachHangDAO.Insert(newCustomer);
+        }
+
+
 
     }
 }
