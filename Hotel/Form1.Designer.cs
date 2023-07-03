@@ -316,7 +316,6 @@
             // DGV_MiniBar
             // 
             this.DGV_MiniBar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DGV_MiniBar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_MiniBar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_MiniBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DGV_MiniBar.Location = new System.Drawing.Point(0, 42);
@@ -361,7 +360,6 @@
             // DGV_DVTour
             // 
             this.DGV_DVTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DGV_DVTour.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_DVTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DVTour.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DGV_DVTour.Location = new System.Drawing.Point(0, 49);
@@ -397,7 +395,6 @@
             // DGV_DVThuong
             // 
             this.DGV_DVThuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DGV_DVThuong.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_DVThuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DVThuong.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DGV_DVThuong.Location = new System.Drawing.Point(0, 49);
