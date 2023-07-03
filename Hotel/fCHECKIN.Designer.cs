@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dgvPHIEUDATPHONG = new System.Windows.Forms.DataGridView();
+            dgvPHIEUDATPHONG = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.txtmadp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPHIEUDATPHONG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dgvPHIEUDATPHONG)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.dgvPHIEUDATPHONG);
+            this.panel6.Controls.Add(dgvPHIEUDATPHONG);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(19, 250);
             this.panel6.Name = "panel6";
@@ -75,18 +75,20 @@
             // 
             // dgvPHIEUDATPHONG
             // 
-            this.dgvPHIEUDATPHONG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPHIEUDATPHONG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPHIEUDATPHONG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPHIEUDATPHONG.Location = new System.Drawing.Point(0, 0);
-            this.dgvPHIEUDATPHONG.Name = "dgvPHIEUDATPHONG";
-            this.dgvPHIEUDATPHONG.ReadOnly = true;
-            this.dgvPHIEUDATPHONG.RowHeadersVisible = false;
-            this.dgvPHIEUDATPHONG.RowHeadersWidth = 62;
-            this.dgvPHIEUDATPHONG.RowTemplate.Height = 28;
-            this.dgvPHIEUDATPHONG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPHIEUDATPHONG.Size = new System.Drawing.Size(1200, 704);
-            this.dgvPHIEUDATPHONG.TabIndex = 0;
+            dgvPHIEUDATPHONG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPHIEUDATPHONG.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            dgvPHIEUDATPHONG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPHIEUDATPHONG.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvPHIEUDATPHONG.Location = new System.Drawing.Point(0, 0);
+            dgvPHIEUDATPHONG.Name = "dgvPHIEUDATPHONG";
+            dgvPHIEUDATPHONG.ReadOnly = true;
+            dgvPHIEUDATPHONG.RowHeadersVisible = false;
+            dgvPHIEUDATPHONG.RowHeadersWidth = 62;
+            dgvPHIEUDATPHONG.RowTemplate.Height = 28;
+            dgvPHIEUDATPHONG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvPHIEUDATPHONG.Size = new System.Drawing.Size(1200, 704);
+            dgvPHIEUDATPHONG.TabIndex = 0;
+            dgvPHIEUDATPHONG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(dgvPHIEUDATPHONG_CellContentClick);
             // 
             // panel5
             // 
@@ -106,8 +108,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtValue);
+            this.panel3.Controls.Add(this.txtmadp);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
@@ -120,22 +122,23 @@
             this.panel3.Size = new System.Drawing.Size(1239, 130);
             this.panel3.TabIndex = 1;
             // 
-            // textBox1
+            // txtValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(384, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 26);
-            this.textBox1.TabIndex = 7;
+            this.txtValue.BackColor = System.Drawing.SystemColors.Info;
+            this.txtValue.Location = new System.Drawing.Point(384, 31);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(194, 26);
+            this.txtValue.TabIndex = 7;
             // 
-            // label3
+            // txtmadp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(244, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "null";
+            this.txtmadp.AutoSize = true;
+            this.txtmadp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmadp.Location = new System.Drawing.Point(244, 88);
+            this.txtmadp.Name = "txtmadp";
+            this.txtmadp.Size = new System.Drawing.Size(42, 25);
+            this.txtmadp.TabIndex = 6;
+            this.txtmadp.Text = "null";
             // 
             // label2
             // 
@@ -149,37 +152,42 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(975, 29);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(989, 18);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 37);
+            this.button3.Size = new System.Drawing.Size(162, 55);
             this.button3.TabIndex = 4;
             this.button3.Text = "CHECK IN";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button2.Image = global::Hotel.Properties.Resources.refresh__1_;
             this.button2.Location = new System.Drawing.Point(641, 25);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(50, 38);
             this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.Image = global::Hotel.Properties.Resources.search__1_;
             this.button1.Location = new System.Drawing.Point(584, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(51, 38);
             this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(13, 33);
             this.label1.Name = "label1";
@@ -228,7 +236,7 @@
             this.Load += new System.EventHandler(this.fCHECKIN_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPHIEUDATPHONG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dgvPHIEUDATPHONG)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -241,7 +249,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dgvPHIEUDATPHONG;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
@@ -252,8 +259,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbAttribute;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label txtmadp;
+        private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label label4;
+        public static System.Windows.Forms.DataGridView dgvPHIEUDATPHONG;
     }
 }

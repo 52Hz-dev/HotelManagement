@@ -57,5 +57,18 @@ namespace Hotel.DAO
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0];
         }
+        public static KhachHang THONGTINKHACHHANG(string makh)
+        {
+            String query = "select * from KHACHHANG where MAKH = '"+makh+"'";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            KhachHang kh = new KhachHang(dt.Rows[0]);
+            return kh;
+        }
+        public static int Capnhatthongtin(KhachHang kh)
+        {
+            string query = "update khachhang set hoten = N'"+kh.HoTen+ "', Email = '"+kh.Email+ "', CMND = '"+kh.CMND+ "', SDT = '"+kh.SDT+"', FAX ='"+kh.FAX+"'  where makh = '" + kh.MaKH + "'";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result;
+        }
     }
 }

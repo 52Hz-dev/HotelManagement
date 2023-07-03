@@ -14,6 +14,16 @@ namespace Hotel
 {
     public partial class fCHECKIN : Form
     {
+        public static string txtCMND;
+        public static string txtEmail;
+        public static string txtFax;
+        public static string txtHochieu;
+        public static string txtMAKH;
+        public static string txtMAPHIEU;
+        public static string txtSodem;
+        public static string txtThanhtoantruoc;
+        public static string txtHTTT;
+        public static string txtYeucau;
         public fCHECKIN()
         {
             InitializeComponent();
@@ -21,8 +31,15 @@ namespace Hotel
 
         private void button3_Click(object sender, EventArgs e)
         {
-            fCHECKIN_THANHCONG form = new fCHECKIN_THANHCONG();
-            form.ShowDialog();
+            if (txtmadp.Text == null)
+            {
+                MessageBox.Show("Bạn chưa chọn phiếu đặt phòng!");
+            }
+            else
+            {
+                fCHECKIN_THANHCONG form = new fCHECKIN_THANHCONG();
+                form.ShowDialog();
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -40,16 +57,38 @@ namespace Hotel
             cbAttribute.DropDownStyle = ComboBoxStyle.DropDownList;
             List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
             dgvPHIEUDATPHONG.DataSource = pdp;
+            int x = label4.Size.Width / 2;
+            int y = label4.Size.Height;
+            label4.Location = new Point(panel2.Size.Width / 2 - x, panel2.Size.Height - y);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //dgvPHIEUDATPHONG.DataSource = PHIEUDATPHONG.FILTER_WITH_ATTRIBUTE(attribute,value);
+            dgvPHIEUDATPHONG.DataSource = PHIEUDATPHONG.FILTER_WITH_ATTRIBUTE(cbAttribute.Text,txtValue.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //dgvPHIEUDATPHONG.DataSource = PHIEUDATPHONG.DS_PDP_CHOCHECKIN(trangthai);
+            List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
+            dgvPHIEUDATPHONG.DataSource = pdp;
+        }
+
+        private void dgvPHIEUDATPHONG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvPHIEUDATPHONG.CurrentRow.Selected = true;
+                txtmadp.Text = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["MAPHIEUDP"].FormattedValue.ToString();
+                txtMAPHIEU  = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["MAPHIEUDP"].FormattedValue.ToString();
+                txtCMND = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["MAPHIEUDP"].FormattedValue.ToString();
+                txtMAKH = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["MAKHACHHANG"].FormattedValue.ToString(); 
+                txtSodem = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["SODEMDAT"].FormattedValue.ToString(); 
+                txtThanhtoantruoc = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["DATCOC"].FormattedValue.ToString(); 
+                txtHTTT = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["HINHTHUCTRA"].FormattedValue.ToString();
+                txtYeucau = dgvPHIEUDATPHONG.Rows[e.RowIndex].Cells["GHICHUDB"].FormattedValue.ToString(); 
+            }
+
         }
     }
 }

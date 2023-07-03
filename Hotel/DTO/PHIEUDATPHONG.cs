@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Hotel.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ namespace Hotel.DTO
 {
     public class PHIEUDATPHONG
     {
-		private string MAPDP;
+        private string MAPDP;
         private string NGAYDAT;
         private string NGAYDEN;
         private string SODEMLUUTRU;
@@ -19,17 +21,24 @@ namespace Hotel.DTO
         private string HTTHANHTOAN;
         private string MANGUOILAP;
         private string NGAYCHECKIN;
+        public string MaKH { get; set; }
+        public string HoTen { get; set; }
+        public string Email { get; set; }
+        public string CMND { get; set; }
+        public string SDT { get; set; }
+        public string FAX { get; set; }
+        public string DiaChi { get; set; }
 
-        public string MAPDP1 { get => MAPDP; set => MAPDP = value; }
-        public string NGAYDAT1 { get => NGAYDAT; set => NGAYDAT = value; }
-        public string NGAYDEN1 { get => NGAYDEN; set => NGAYDEN = value; }
-        public string GHICHU1 { get => GHICHU; set => GHICHU = value; }
-        public string TIENDATCOC1 { get => TIENDATCOC; set => TIENDATCOC = value; }
-        public string NGUOIDAT1 { get => NGUOIDAT; set => NGUOIDAT = value; }
-        public string HTTHANHTOAN1 { get => HTTHANHTOAN; set => HTTHANHTOAN = value; }
-        public string MANGUOILAP1 { get => MANGUOILAP; set => MANGUOILAP = value; }
-        public string NGAYCHECKIN1 { get => NGAYCHECKIN; set => NGAYCHECKIN = value; }
-        public string SODEMLUUTRU1 { get => SODEMLUUTRU; set => SODEMLUUTRU = value; }
+        public string MAPHIEUDP { get => MAPDP; set => MAPDP = value; }
+        public string NGAYDATPHONG { get => NGAYDAT; set => NGAYDAT = value; }
+        public string NGAYDENNHAN { get => NGAYDEN; set => NGAYDEN = value; }
+        public string GHICHUDB { get => GHICHU; set => GHICHU = value; }
+        public string DATCOC { get => TIENDATCOC; set => TIENDATCOC = value; }
+        public string MAKHACHHANG { get => NGUOIDAT; set => NGUOIDAT = value; }
+        public string HINHTHUCTRA { get => HTTHANHTOAN; set => HTTHANHTOAN = value; }
+        public string MANVLAPPHIEU { get => MANGUOILAP; set => MANGUOILAP = value; }
+        public string NGAYCHECK_IN { get => NGAYCHECKIN; set => NGAYCHECKIN = value; }
+        public string SODEMDAT { get => SODEMLUUTRU; set => SODEMLUUTRU = value; }
 
         public PHIEUDATPHONG(DataRow row)
         {
@@ -43,6 +52,48 @@ namespace Hotel.DTO
             this.HTTHANHTOAN = (string)row["HTTHANHTOAN"].ToString();
             this.MANGUOILAP = (string)row["MANGUOILAP"].ToString();
             this.NGAYCHECKIN = row["NGAYCHECKIN"].ToString();
+            MaKH = row["MaKH"].ToString();
+            HoTen = row["HOTEN"].ToString();
+            Email = row["EMAIL"].ToString();
+            CMND = row["CMND"].ToString();
+            SDT = row["SDT"].ToString();
+            FAX = row["FAX"].ToString();
+            DiaChi = row["DIACHI"].ToString();
+        }
+
+        public PHIEUDATPHONG(string MAPDP, string GHICHU, string TIENDATCOC, string HTTHANHTOAN, string NGAYCHECKIN)
+        {
+            this.MAPDP = MAPDP;
+            this.GHICHU = GHICHU;
+            this.TIENDATCOC = TIENDATCOC;
+            this.HTTHANHTOAN = HTTHANHTOAN;
+            this.NGAYCHECKIN = NGAYCHECKIN;
+        }
+        public static int checkin(PHIEUDATPHONG pdp)
+        {
+            return PhieuDatPhongDAO.ghinhancheckin(pdp);
+        }
+        public static List<PHIEUDATPHONG> FILTER_WITH_ATTRIBUTE(string attribute, string value)
+        {
+            List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
+            
+            switch (attribute)
+            {
+                case "Mã phiếu":
+                    list = PhieuDatPhongDAO.FILTER_BY_MAPHIEU(value);
+                    break;
+                case "Họ tên":
+                    list = PhieuDatPhongDAO.FILTER_BY_HOTEN(value);
+                    break;
+                case "CMND":
+                    list = PhieuDatPhongDAO.FILTER_BY_CMND(value);
+                    break;
+                case "SĐT":
+                    list = PhieuDatPhongDAO.FILTER_BY_SDT(value);
+                    break;
+
+            }
+            return list;
         }
     }
 }

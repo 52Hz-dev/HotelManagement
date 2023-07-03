@@ -189,6 +189,7 @@
     <None Include="Resources\search.png" />
     <None Include="Resources\search %281%29.png" />
     <None Include="Resources\refresh %281%29.png" />
+    <None Include="Resources\diskette.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
