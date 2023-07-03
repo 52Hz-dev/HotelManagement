@@ -23,6 +23,12 @@ namespace Hotel.DAO
             }    
             return list;
         }
+        public static string GetLastId()
+        {
+            DataTable data = new DataTable();
+            data = DataProvider.Instance.ExecuteQuery("select MAPDP from PHIEUDATPHONG");
+            return data.Rows[data.Rows.Count - 1]["MaPDP"].ToString();
+        }
 
         public static String TienPhong()
         {
@@ -35,6 +41,15 @@ namespace Hotel.DAO
             return dt.Rows[0][0].ToString();
         }
         public static String TienCoc()
+
+        public static bool Insert(PhieuDatPhong phieudp)
+        {
+            string query = $"INSERT INTO PHIEUDATPHONG (MAPDP, NGAYDAT, NGAYDEN, SODEMLUUTRU, GHICHU, TIENDATCOC, NGUOIDAT, TINHTRANG)\r\nVALUES ('{phieudp.MaDatPhong}', '{phieudp.NgayDat.ToShortDateString()}', '{phieudp.NgayDen.ToShortDateString()}', {phieudp.SoDemLT}, N'{phieudp.GhiChu}', {phieudp.TienDaTra}, '{phieudp.MaKH}', N'Chờ check in')";
+            var count = DataProvider.Instance.ExecuteNonQuery(query);
+            if (count > 0) return true;
+            else return false;
+        }
+        public static DataRow InfoRoom()
         {
             string query = "select SUM(PHIEUDATPHONG.TIENDATCOC) " +
                             "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +

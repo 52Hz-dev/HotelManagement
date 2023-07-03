@@ -20,6 +20,7 @@ namespace Hotel
         private void button2_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            callForm(new fDatPhong());
         }
         void callForm(Form childForm)
         {
@@ -71,6 +72,7 @@ namespace Hotel
         private void button3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            callForm(new fCHECKIN());
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -81,6 +83,7 @@ namespace Hotel
         private void button5_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            callForm(new Form1());
         }
 
         private void button6_Click(object sender, EventArgs e)

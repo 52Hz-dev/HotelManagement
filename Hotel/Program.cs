@@ -19,7 +19,7 @@ namespace Hotel
             Application.SetCompatibleTextRenderingDefault(false);
             //DataProvider data=new DataProvider();
             DataProvider.getInstance();
-            Application.Run(new Form1());
+            Application.Run(new Home());
         }
     }
 }
