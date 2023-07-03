@@ -26,5 +26,15 @@ namespace Hotel.DAO
             }
             return list;
         }
+        public static String TienMiniBar()
+        {
+            string query = "select SUM(DONGIA) AS TongTienMiniBar " +
+                            "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVU, DICHVU " +
+                            "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = PHIEUSUDUNGDICHVU.MAPDP " +
+                            "and PHIEUSUDUNGDICHVU.MADV = DICHVU.MADV;";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            return dt.Rows[0][0].ToString();
+        }
+
     }
 }

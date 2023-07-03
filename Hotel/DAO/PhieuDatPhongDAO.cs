@@ -24,14 +24,25 @@ namespace Hotel.DAO
             return list;
         }
 
-        public static DataRow InfoRoom()
+        public static String TienPhong()
         {
-            string query = "select 	PDP.MAPDP, PDP.NGAYDAT, PDP.NGAYDEN, PDP.SODEMLUUTRU, PDP.GHICHU, PDP.TIENDATCOC, " +
-                            "PDP.NGUOIDAT, PDP.HTTHANHTOAN, PDP.MANGUOILAP, PDP.NGAYCHECKIN " +
-                            "from PHIEUDATPHONG AS PDP, KHACHHANG " +
-                            "where KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PDP.NGUOIDAT";
+            string query = "select SUM(LOAIPHONG.DONGIA*PHIEUDATPHONG.SODEMLUUTRU) " +
+                            "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +
+                            "where  KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT " +
+                            "and PHIEUDATPHONG.MAPDP = CHITIETDATPHONG.MAPDP " +
+                            "and CHITIETDATPHONG.MAPH = PHONG.MAPH and PHONG.LOAIPH = LOAIPHONG.MALP";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
-            return dt.Rows[0];
+            return dt.Rows[0][0].ToString();
+        }
+        public static String TienCoc()
+        {
+            string query = "select SUM(PHIEUDATPHONG.TIENDATCOC) " +
+                            "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +
+                            "where  KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT " +
+                            "and PHIEUDATPHONG.MAPDP = CHITIETDATPHONG.MAPDP " +
+                            "and CHITIETDATPHONG.MAPH = PHONG.MAPH and PHONG.LOAIPH = LOAIPHONG.MALP";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            return dt.Rows[0][0].ToString();
         }
     }
 }

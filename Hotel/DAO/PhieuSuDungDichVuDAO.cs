@@ -25,5 +25,13 @@ namespace Hotel.DAO
             }
             return list;
         }
+        public static String TienDVThuong()
+        {
+            string query = "select SUM(THANHTIEN*SOLUONG) " +
+                           "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVU AS DV " +
+                           "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = DV.MAPDP";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            return dt.Rows[0][0].ToString();
+        }
     }
 }

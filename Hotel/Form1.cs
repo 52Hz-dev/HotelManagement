@@ -43,12 +43,8 @@ namespace Hotel
             int x = lbTitlePhong.Size.Width / 2;
             int y = lbTitlePhong.Size.Height;
             lbTitlePhong.Location = new Point(panel3.Size.Width / 2 - x, y);
-            PHIEUDATPHONG infpdp = new PHIEUDATPHONG(PhieuDatPhongDAO.InfoRoom());
-            lbGetNVPhong.Text = infpdp.MANGUOILAP1;
-            lbGetNgayDat.Text = infpdp.NGAYDAT1;
-            lbGetNgayDen.Text = infpdp.NGAYDEN1;
-            lbGetSoNgay.Text = infpdp.SODEMLUUTRU1;
-            lbGetNotePhong.Text = infpdp.GHICHU1;
+            List<LOAIPHONG> ListRoom = LoaiPhongDAO.InfoRoom();
+            DGV_ListRoom.DataSource = ListRoom;
         }
 
         void loadListDVThuong()
@@ -74,7 +70,7 @@ namespace Hotel
             lb_TitleMiniBar.Location = new Point(panel6.Size.Width / 2 - x, y);
             lb_TitleDVTour.Location = new Point(panel5.Size.Width / 2 - x, y);
             List<DICHVU> MiniBar = DichVuDAO.listMiniBar();
-            DGV_DVTour.DataSource = MiniBar;
+            DGV_MiniBar.DataSource = MiniBar;
         }
 
         void loadTongTien()
@@ -85,43 +81,53 @@ namespace Hotel
             int TienDVThuong = Convert.ToInt32(loadTienDVThuong());
             int TienDVTour = Convert.ToInt32(loadTienDVTour());
             int TienMiniBar = Convert.ToInt32(loadTienDVMiniBar());
-            lbGetTongTien.Text = (TienDVThuong + TienDVTour + TienMiniBar).ToString();
+            int TienPhong = Convert.ToInt32(loadTienPhong());
+            int TienCoc = Convert.ToInt32(loadTienCoc());
+            lbGetTongTien.Text = (TienPhong + TienDVThuong + TienDVTour + TienMiniBar - TienCoc).ToString();
         }
 
         String loadTienDVThuong()
         {
-            string query = "select SUM(THANHTIEN*SOLUONG) " +
-                           "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVU AS DV " +
-                           "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = DV.MAPDP";
+
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            dt = provider.ExecuteQuery(query);
-            lbGetTienDVThuong.Text = dt.Rows[0][0].ToString();
-            return dt.Rows[0][0].ToString();
+            string tienDVThuong = PhieuSuDungDichVuDAO.TienDVThuong();
+            lbGetTienDVThuong.Text = tienDVThuong;
+            return tienDVThuong;
         }
         String loadTienDVTour()
         {
-            string query = "select SUM(THANHTIEN*SLNGUOI) " +
-                           "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVUTOUR AS TOUR " +
-                           "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = TOUR.MAPDP";
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            dt = provider.ExecuteQuery(query);
-            lbGetTienDVTour.Text = dt.Rows[0][0].ToString();
-            return dt.Rows[0][0].ToString();
+            string tienDVTour= PhieuSuDungDichVuTourDAO.TienDVTour();
+            lbGetTienDVTour.Text = tienDVTour;
+            return tienDVTour;
         }
 
         String loadTienDVMiniBar()
         {
-            string query = "select SUM(DONGIA) AS TongTienMiniBar " +
-                            "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVU, DICHVU " +
-                            "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = PHIEUSUDUNGDICHVU.MAPDP " +
-                            "and PHIEUSUDUNGDICHVU.MADV = DICHVU.MADV;";
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            dt = provider.ExecuteQuery(query);
-            lbGetTienMiniBar.Text = dt.Rows[0][0].ToString();
-            return dt.Rows[0][0].ToString();
+            string tienMiniBar= DichVuDAO.TienMiniBar();
+            lbGetTienMiniBar.Text = tienMiniBar;
+            return tienMiniBar;
+        }
+
+        String loadTienPhong()
+        {
+            DataProvider provider = new DataProvider();
+            DataTable dt = new DataTable();
+            string TienPhong = PhieuDatPhongDAO.TienPhong();
+            lbGetTienPhong.Text = TienPhong;
+            return TienPhong;
+        }
+        String loadTienCoc()
+        {
+            DataProvider provider = new DataProvider();
+            DataTable dt = new DataTable();
+            string TienCoc = PhieuDatPhongDAO.TienCoc();
+            lbGetTienCoc.Text = TienCoc;
+            return TienCoc;
         }
 
         private void txt_DV_SuDung_TextChanged(object sender, EventArgs e)
@@ -135,6 +141,11 @@ namespace Hotel
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
         {
 
         }

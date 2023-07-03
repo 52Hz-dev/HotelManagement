@@ -30,6 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lbGetTienCoc = new System.Windows.Forms.Label();
+            this.lbTienCoc = new System.Windows.Forms.Label();
+            this.lbGetTienPhong = new System.Windows.Forms.Label();
+            this.lbTienPhong = new System.Windows.Forms.Label();
             this.lbGetTongTien = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
             this.lbGetTienMiniBar = new System.Windows.Forms.Label();
@@ -55,14 +59,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbGetNotePhong = new System.Windows.Forms.Label();
             this.lbNotePhong = new System.Windows.Forms.Label();
-            this.lbGetSoNgay = new System.Windows.Forms.Label();
-            this.lbSoNgay = new System.Windows.Forms.Label();
-            this.lbGetNgayDen = new System.Windows.Forms.Label();
-            this.lbNgayDen = new System.Windows.Forms.Label();
-            this.lbGetNgayDat = new System.Windows.Forms.Label();
-            this.lbNgayDat = new System.Windows.Forms.Label();
-            this.lbGetNVPhong = new System.Windows.Forms.Label();
-            this.lbNVPhong = new System.Windows.Forms.Label();
             this.lbTitlePhong = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbGetSDT = new System.Windows.Forms.Label();
@@ -72,6 +68,7 @@
             this.lbCMND = new System.Windows.Forms.Label();
             this.lbGetName = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
+            this.DGV_ListRoom = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -84,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DVThuong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ListRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,11 +97,15 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 682);
+            this.panel1.Size = new System.Drawing.Size(993, 838);
             this.panel1.TabIndex = 1;
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.lbGetTienCoc);
+            this.panel9.Controls.Add(this.lbTienCoc);
+            this.panel9.Controls.Add(this.lbGetTienPhong);
+            this.panel9.Controls.Add(this.lbTienPhong);
             this.panel9.Controls.Add(this.lbGetTongTien);
             this.panel9.Controls.Add(this.lbTongTien);
             this.panel9.Controls.Add(this.lbGetTienMiniBar);
@@ -117,14 +119,53 @@
             this.panel9.Location = new System.Drawing.Point(0, 692);
             this.panel9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(993, 0);
+            this.panel9.Size = new System.Drawing.Size(993, 106);
             this.panel9.TabIndex = 6;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // lbGetTienCoc
+            // 
+            this.lbGetTienCoc.AutoSize = true;
+            this.lbGetTienCoc.Location = new System.Drawing.Point(368, 42);
+            this.lbGetTienCoc.Name = "lbGetTienCoc";
+            this.lbGetTienCoc.Size = new System.Drawing.Size(64, 13);
+            this.lbGetTienCoc.TabIndex = 12;
+            this.lbGetTienCoc.Text = "GetTienCoc";
+            // 
+            // lbTienCoc
+            // 
+            this.lbTienCoc.AutoSize = true;
+            this.lbTienCoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienCoc.Location = new System.Drawing.Point(293, 41);
+            this.lbTienCoc.Name = "lbTienCoc";
+            this.lbTienCoc.Size = new System.Drawing.Size(65, 13);
+            this.lbTienCoc.TabIndex = 11;
+            this.lbTienCoc.Text = "Tiền cọc: ";
+            // 
+            // lbGetTienPhong
+            // 
+            this.lbGetTienPhong.AutoSize = true;
+            this.lbGetTienPhong.Location = new System.Drawing.Point(92, 42);
+            this.lbGetTienPhong.Name = "lbGetTienPhong";
+            this.lbGetTienPhong.Size = new System.Drawing.Size(76, 13);
+            this.lbGetTienPhong.TabIndex = 10;
+            this.lbGetTienPhong.Text = "GetTienPhong";
+            // 
+            // lbTienPhong
+            // 
+            this.lbTienPhong.AutoSize = true;
+            this.lbTienPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienPhong.Location = new System.Drawing.Point(3, 42);
+            this.lbTienPhong.Name = "lbTienPhong";
+            this.lbTienPhong.Size = new System.Drawing.Size(79, 13);
+            this.lbTienPhong.TabIndex = 9;
+            this.lbTienPhong.Text = "Tiền phòng: ";
             // 
             // lbGetTongTien
             // 
             this.lbGetTongTien.AutoSize = true;
             this.lbGetTongTien.ForeColor = System.Drawing.Color.Red;
-            this.lbGetTongTien.Location = new System.Drawing.Point(73, 114);
+            this.lbGetTongTien.Location = new System.Drawing.Point(364, 90);
             this.lbGetTongTien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbGetTongTien.Name = "lbGetTongTien";
             this.lbGetTongTien.Size = new System.Drawing.Size(70, 13);
@@ -135,7 +176,7 @@
             // 
             this.lbTongTien.AutoSize = true;
             this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongTien.Location = new System.Drawing.Point(2, 114);
+            this.lbTongTien.Location = new System.Drawing.Point(293, 90);
             this.lbTongTien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTongTien.Name = "lbTongTien";
             this.lbTongTien.Size = new System.Drawing.Size(65, 13);
@@ -145,7 +186,7 @@
             // lbGetTienMiniBar
             // 
             this.lbGetTienMiniBar.AutoSize = true;
-            this.lbGetTienMiniBar.Location = new System.Drawing.Point(67, 88);
+            this.lbGetTienMiniBar.Location = new System.Drawing.Point(67, 90);
             this.lbGetTienMiniBar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbGetTienMiniBar.Name = "lbGetTienMiniBar";
             this.lbGetTienMiniBar.Size = new System.Drawing.Size(80, 13);
@@ -156,7 +197,7 @@
             // 
             this.lbTienMiniBar.AutoSize = true;
             this.lbTienMiniBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienMiniBar.Location = new System.Drawing.Point(3, 88);
+            this.lbTienMiniBar.Location = new System.Drawing.Point(3, 90);
             this.lbTienMiniBar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTienMiniBar.Name = "lbTienMiniBar";
             this.lbTienMiniBar.Size = new System.Drawing.Size(57, 13);
@@ -166,7 +207,7 @@
             // lbGetTienDVTour
             // 
             this.lbGetTienDVTour.AutoSize = true;
-            this.lbGetTienDVTour.Location = new System.Drawing.Point(90, 62);
+            this.lbGetTienDVTour.Location = new System.Drawing.Point(380, 66);
             this.lbGetTienDVTour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbGetTienDVTour.Name = "lbGetTienDVTour";
             this.lbGetTienDVTour.Size = new System.Drawing.Size(82, 13);
@@ -177,7 +218,7 @@
             // 
             this.lbTienDVTour.AutoSize = true;
             this.lbTienDVTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienDVTour.Location = new System.Drawing.Point(3, 62);
+            this.lbTienDVTour.Location = new System.Drawing.Point(293, 66);
             this.lbTienDVTour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTienDVTour.Name = "lbTienDVTour";
             this.lbTienDVTour.Size = new System.Drawing.Size(81, 13);
@@ -187,7 +228,7 @@
             // lbGetTienDVThuong
             // 
             this.lbGetTienDVThuong.AutoSize = true;
-            this.lbGetTienDVThuong.Location = new System.Drawing.Point(108, 34);
+            this.lbGetTienDVThuong.Location = new System.Drawing.Point(108, 66);
             this.lbGetTienDVThuong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbGetTienDVThuong.Name = "lbGetTienDVThuong";
             this.lbGetTienDVThuong.Size = new System.Drawing.Size(97, 13);
@@ -198,7 +239,7 @@
             // 
             this.lbTienDVThuong.AutoSize = true;
             this.lbTienDVThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienDVThuong.Location = new System.Drawing.Point(3, 34);
+            this.lbTienDVThuong.Location = new System.Drawing.Point(3, 66);
             this.lbTienDVThuong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTienDVThuong.Name = "lbTienDVThuong";
             this.lbTienDVThuong.Size = new System.Drawing.Size(98, 13);
@@ -220,10 +261,10 @@
             // 
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 636);
+            this.panel7.Location = new System.Drawing.Point(0, 798);
             this.panel7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(993, 46);
+            this.panel7.Size = new System.Drawing.Size(993, 40);
             this.panel7.TabIndex = 5;
             // 
             // panel8
@@ -234,7 +275,7 @@
             this.panel8.Location = new System.Drawing.Point(760, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(233, 46);
+            this.panel8.Size = new System.Drawing.Size(233, 40);
             this.panel8.TabIndex = 1;
             // 
             // btnPrint
@@ -244,7 +285,7 @@
             this.btnPrint.Location = new System.Drawing.Point(0, 0);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(113, 46);
+            this.btnPrint.Size = new System.Drawing.Size(113, 40);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "In hóa đơn";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -256,7 +297,7 @@
             this.btn_ThanhToan.Location = new System.Drawing.Point(120, 0);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
-            this.btn_ThanhToan.Size = new System.Drawing.Size(113, 46);
+            this.btn_ThanhToan.Size = new System.Drawing.Size(113, 40);
             this.btn_ThanhToan.TabIndex = 0;
             this.btn_ThanhToan.Text = "Thanh toán";
             this.btn_ThanhToan.UseVisualStyleBackColor = true;
@@ -369,16 +410,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.DGV_ListRoom);
             this.panel3.Controls.Add(this.lbGetNotePhong);
             this.panel3.Controls.Add(this.lbNotePhong);
-            this.panel3.Controls.Add(this.lbGetSoNgay);
-            this.panel3.Controls.Add(this.lbSoNgay);
-            this.panel3.Controls.Add(this.lbGetNgayDen);
-            this.panel3.Controls.Add(this.lbNgayDen);
-            this.panel3.Controls.Add(this.lbGetNgayDat);
-            this.panel3.Controls.Add(this.lbNgayDat);
-            this.panel3.Controls.Add(this.lbGetNVPhong);
-            this.panel3.Controls.Add(this.lbNVPhong);
             this.panel3.Controls.Add(this.lbTitlePhong);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 124);
@@ -407,90 +441,6 @@
             this.lbNotePhong.Size = new System.Drawing.Size(59, 13);
             this.lbNotePhong.TabIndex = 9;
             this.lbNotePhong.Text = "Ghi chú: ";
-            // 
-            // lbGetSoNgay
-            // 
-            this.lbGetSoNgay.AutoSize = true;
-            this.lbGetSoNgay.Location = new System.Drawing.Point(118, 136);
-            this.lbGetSoNgay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGetSoNgay.Name = "lbGetSoNgay";
-            this.lbGetSoNgay.Size = new System.Drawing.Size(62, 13);
-            this.lbGetSoNgay.TabIndex = 8;
-            this.lbGetSoNgay.Text = "GetSoNgay";
-            // 
-            // lbSoNgay
-            // 
-            this.lbSoNgay.AutoSize = true;
-            this.lbSoNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSoNgay.Location = new System.Drawing.Point(2, 136);
-            this.lbSoNgay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbSoNgay.Name = "lbSoNgay";
-            this.lbSoNgay.Size = new System.Drawing.Size(108, 13);
-            this.lbSoNgay.TabIndex = 7;
-            this.lbSoNgay.Text = "Thời gian lưu trú: ";
-            // 
-            // lbGetNgayDen
-            // 
-            this.lbGetNgayDen.AutoSize = true;
-            this.lbGetNgayDen.Location = new System.Drawing.Point(78, 105);
-            this.lbGetNgayDen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGetNgayDen.Name = "lbGetNgayDen";
-            this.lbGetNgayDen.Size = new System.Drawing.Size(69, 13);
-            this.lbGetNgayDen.TabIndex = 6;
-            this.lbGetNgayDen.Text = "GetNgayDen";
-            // 
-            // lbNgayDen
-            // 
-            this.lbNgayDen.AutoSize = true;
-            this.lbNgayDen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgayDen.Location = new System.Drawing.Point(3, 105);
-            this.lbNgayDen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbNgayDen.Name = "lbNgayDen";
-            this.lbNgayDen.Size = new System.Drawing.Size(70, 13);
-            this.lbNgayDen.TabIndex = 5;
-            this.lbNgayDen.Text = "Ngày đến: ";
-            // 
-            // lbGetNgayDat
-            // 
-            this.lbGetNgayDat.AutoSize = true;
-            this.lbGetNgayDat.Location = new System.Drawing.Point(75, 74);
-            this.lbGetNgayDat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGetNgayDat.Name = "lbGetNgayDat";
-            this.lbGetNgayDat.Size = new System.Drawing.Size(66, 13);
-            this.lbGetNgayDat.TabIndex = 4;
-            this.lbGetNgayDat.Text = "GetNgayDat";
-            // 
-            // lbNgayDat
-            // 
-            this.lbNgayDat.AutoSize = true;
-            this.lbNgayDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgayDat.Location = new System.Drawing.Point(3, 74);
-            this.lbNgayDat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbNgayDat.Name = "lbNgayDat";
-            this.lbNgayDat.Size = new System.Drawing.Size(67, 13);
-            this.lbNgayDat.TabIndex = 3;
-            this.lbNgayDat.Text = "Ngày đặt: ";
-            // 
-            // lbGetNVPhong
-            // 
-            this.lbGetNVPhong.AutoSize = true;
-            this.lbGetNVPhong.Location = new System.Drawing.Point(138, 44);
-            this.lbGetNVPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGetNVPhong.Name = "lbGetNVPhong";
-            this.lbGetNVPhong.Size = new System.Drawing.Size(70, 13);
-            this.lbGetNVPhong.TabIndex = 2;
-            this.lbGetNVPhong.Text = "GetNVPhong";
-            // 
-            // lbNVPhong
-            // 
-            this.lbNVPhong.AutoSize = true;
-            this.lbNVPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNVPhong.Location = new System.Drawing.Point(3, 44);
-            this.lbNVPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbNVPhong.Name = "lbNVPhong";
-            this.lbNVPhong.Size = new System.Drawing.Size(126, 13);
-            this.lbNVPhong.TabIndex = 1;
-            this.lbNVPhong.Text = "Nhân viên tiếp nhận:";
             // 
             // lbTitlePhong
             // 
@@ -593,11 +543,22 @@
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Họ tên: ";
             // 
+            // DGV_ListRoom
+            // 
+            this.DGV_ListRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGV_ListRoom.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGV_ListRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_ListRoom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DGV_ListRoom.Location = new System.Drawing.Point(0, 43);
+            this.DGV_ListRoom.Name = "DGV_ListRoom";
+            this.DGV_ListRoom.Size = new System.Drawing.Size(993, 104);
+            this.DGV_ListRoom.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 682);
+            this.ClientSize = new System.Drawing.Size(993, 838);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Form1";
@@ -620,6 +581,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ListRoom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -647,14 +609,6 @@
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbGetSDT;
         private System.Windows.Forms.Label lbTitlePhong;
-        private System.Windows.Forms.Label lbGetSoNgay;
-        private System.Windows.Forms.Label lbSoNgay;
-        private System.Windows.Forms.Label lbGetNgayDen;
-        private System.Windows.Forms.Label lbNgayDen;
-        private System.Windows.Forms.Label lbGetNgayDat;
-        private System.Windows.Forms.Label lbNgayDat;
-        private System.Windows.Forms.Label lbGetNVPhong;
-        private System.Windows.Forms.Label lbNVPhong;
         private System.Windows.Forms.Label lbGetNotePhong;
         private System.Windows.Forms.Label lbNotePhong;
         private System.Windows.Forms.Button btn_ThanhToan;
@@ -669,6 +623,11 @@
         private System.Windows.Forms.Label lbTienDVThuong;
         private System.Windows.Forms.Label lbGetTongTien;
         private System.Windows.Forms.Label lbTongTien;
+        private System.Windows.Forms.Label lbGetTienPhong;
+        private System.Windows.Forms.Label lbTienPhong;
+        private System.Windows.Forms.Label lbTienCoc;
+        private System.Windows.Forms.Label lbGetTienCoc;
+        private System.Windows.Forms.DataGridView DGV_ListRoom;
     }
 }
 
