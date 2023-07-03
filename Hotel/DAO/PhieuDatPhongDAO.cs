@@ -40,7 +40,6 @@ namespace Hotel.DAO
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0][0].ToString();
         }
-        public static String TienCoc()
 
         public static bool Insert(PhieuDatPhong phieudp)
         {
@@ -49,7 +48,7 @@ namespace Hotel.DAO
             if (count > 0) return true;
             else return false;
         }
-        public static DataRow InfoRoom()
+        public static String TienCoc()
         {
             string query = "select SUM(PHIEUDATPHONG.TIENDATCOC) " +
                             "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +
