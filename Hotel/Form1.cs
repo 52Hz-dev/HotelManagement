@@ -1,11 +1,14 @@
 ﻿using Hotel.DAO;
 using Hotel.DTB;
 using Hotel.DTO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -86,6 +89,7 @@ namespace Hotel
             int TienDVTour = Convert.ToInt32(loadTienDVTour());
             int TienMiniBar = Convert.ToInt32(loadTienDVMiniBar());
             lbGetTongTien.Text = (TienDVThuong + TienDVTour + TienMiniBar).ToString();
+            thanhTien = lbGetTongTien.Text;
         }
 
         String loadTienDVThuong()
@@ -138,5 +142,28 @@ namespace Hotel
         {
 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 10, 10);
+            PdfWriter writer=PdfWriter.GetInstance(doc,new FileStream("../../HoaDon/Create.pdf",FileMode.Create));
+            doc.Open();
+            System.Drawing.Bitmap bm = new System.Drawing.Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, this.Width, this.Height));
+            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bm, System.Drawing.Imaging.ImageFormat.Bmp);
+            img.ScaleAbsoluteWidth(550f);
+            img.ScaleAbsoluteHeight(800f);
+            doc.Add(img);
+            doc.Close();
+            MessageBox.Show("In hoa don thanh cong");
+        }
+
+        private void btn_ThanhToan_Click(object sender, EventArgs e)
+        {
+            String mahd = HoaDon.GenerateNewId();
+            HoaDon hd = new HoaDon(mahd, maPDP, thanhTien, "NV001");
+        }
+        private String maPDP;
+        private String thanhTien;
     }
 }

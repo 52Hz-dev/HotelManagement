@@ -239,6 +239,7 @@
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "In hóa đơn";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btn_ThanhToan
             // 
@@ -251,6 +252,7 @@
             this.btn_ThanhToan.TabIndex = 0;
             this.btn_ThanhToan.Text = "Thanh toán";
             this.btn_ThanhToan.UseVisualStyleBackColor = true;
+            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
             // panel6
             // 
