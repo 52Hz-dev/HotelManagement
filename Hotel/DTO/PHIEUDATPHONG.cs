@@ -44,8 +44,5 @@ namespace Hotel.DTO
             this.MANGUOILAP = (string)row["MANGUOILAP"].ToString();
             this.NGAYCHECKIN = row["NGAYCHECKIN"].ToString();
         }
-
-
-
     }
 }
