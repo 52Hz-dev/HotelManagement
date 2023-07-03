@@ -52,14 +52,22 @@
   <ItemGroup>
     <Compile Include="DAO\CTPhieuDatPhongDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\DichVuDAO.cs" />
+    <Compile Include="DAO\PhieuSuDungDichVuDAO.cs" />
+    <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\PhieuDatPhong.cs" />
     <Compile Include="DAO\PhieuDatPhongDAO.cs" />
+    <Compile Include="DAO\PhieuSuDungDichVuTourDAO.cs" />
     <Compile Include="DAO\PhongCTDAO.cs" />
     <Compile Include="DAO\TinhTrangPhongDAO.cs" />
+    <Compile Include="DTO\DICHVU.cs" />
+    <Compile Include="DTO\PHIEUSUDUNGDICHVU.cs" />
+    <Compile Include="DTO\KHACHHANG.cs" />
     <Compile Include="DTO\CTPhieuDatPhong.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\PHIEUDATPHONG.cs" />
+    <Compile Include="DTO\PHIEUSUDUNGDICHVUTOUR.cs" />
     <Compile Include="DTO\PhongCT.cs" />
     <Compile Include="DTO\Room.cs" />
     <Compile Include="fCHECKIN.cs">
