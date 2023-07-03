@@ -48,6 +48,7 @@ namespace Hotel
             lbTitlePhong.Location = new Point(panel3.Size.Width / 2 - x, y);
             List<LOAIPHONG> ListRoom = LoaiPhongDAO.InfoRoom();
             DGV_ListRoom.DataSource = ListRoom;
+           
         }
 
         void loadListDVThuong()
@@ -87,6 +88,7 @@ namespace Hotel
             int TienPhong = Convert.ToInt32(loadTienPhong());
             int TienCoc = Convert.ToInt32(loadTienCoc());
             lbGetTongTien.Text = (TienPhong + TienDVThuong + TienDVTour + TienMiniBar - TienCoc).ToString();
+            thanhTien = lbGetTongTien.Text;
         }
 
         String loadTienDVThuong()
@@ -158,20 +160,29 @@ namespace Hotel
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 10, 10);
             PdfWriter writer=PdfWriter.GetInstance(doc,new FileStream("../../HoaDon/Create.pdf",FileMode.Create));
             doc.Open();
-            System.Drawing.Bitmap bm = new System.Drawing.Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, this.Width, this.Height));
+            Form1 form = new Form1();
+            form.ControlBox = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.WindowState = FormWindowState.Maximized;
+            System.Drawing.Bitmap bm = new System.Drawing.Bitmap(form.Width, form.Height);
+            form.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, form.Width, form.Height));
             iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bm, System.Drawing.Imaging.ImageFormat.Bmp);
-            img.ScaleAbsoluteWidth(550f);
+            img.ScaleAbsoluteWidth(500f);
             img.ScaleAbsoluteHeight(800f);
             doc.Add(img);
             doc.Close();
+            form.Dispose();
             MessageBox.Show("In hoa don thanh cong");
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
             String mahd = HoaDon.GenerateNewId();
-            HoaDon hd = new HoaDon(mahd, maPDP, thanhTien, "NV001");
+            HoaDon hd = new HoaDon(mahd, "PDP001", thanhTien, "NV001");
+            if (HoaDon.taoHoaDon(hd))
+            {
+                MessageBox.Show("Thanh toan thanh cong");
+            }
         }
         private String maPDP;
         private String thanhTien;

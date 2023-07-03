@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Hotel.DAO
 {
@@ -19,7 +20,8 @@ namespace Hotel.DAO
         }
         public static bool Insert(HoaDon hd)
         {
-            string query = $"INSERT INTO HOADON (MAHD,NGAYLAP, MAPDP, NOIDUNG, THANHTIEN, MANGUOILAP)\r\nVALUES ('{hd.MAHD}', '{hd.NGAYLAP.ToShortDateString()}',  {hd.MAPDP}, {hd.THANHTIEN}, '{hd.MANGUOILAP}')";
+            string query = $"INSERT INTO HOADON (MAHD,NGAYLAP, MAPDP, THANHTIEN, MANGUOILAP)\r\nVALUES ('{hd.MAHD}', '{hd.NGAYLAP.ToShortDateString()}',  '{hd.MAPDP}', {hd.THANHTIEN}, '{hd.MANGUOILAP}')";
+            MessageBox.Show(query);
             var count = DataProvider.Instance.ExecuteNonQuery(query);
             if (count > 0) return true;
             else return false;

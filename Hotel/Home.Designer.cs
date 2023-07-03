@@ -219,6 +219,7 @@
             // 
             // panelCallForm
             // 
+            this.panelCallForm.AutoScroll = true;
             this.panelCallForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCallForm.Location = new System.Drawing.Point(0, 0);
             this.panelCallForm.Name = "panelCallForm";
