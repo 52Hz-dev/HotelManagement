@@ -15,6 +15,7 @@ namespace Hotel
         public Home()
         {
             InitializeComponent();
+            callForm(new TinhTrangPhong());
         }
 
         private void button2_Click(object sender, EventArgs e)

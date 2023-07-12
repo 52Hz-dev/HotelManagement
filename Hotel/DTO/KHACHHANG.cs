@@ -70,7 +70,14 @@ namespace Hotel.DTO
             return KhachHangDAO.Insert(newCustomer);
         }
 
-
+        public static KhachHang laythongtinkhachhang(string makh)
+        {
+            return KhachHangDAO.THONGTINKHACHHANG(makh);
+        }
+        public static int updatethongtin(KhachHang kh)
+        {
+            return KhachHangDAO.Capnhatthongtin(kh);
+        }
 
     }
 }
