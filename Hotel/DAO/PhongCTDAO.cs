@@ -29,8 +29,10 @@ namespace Hotel.DAO
                 "except\r\n" +
                 "(select MaPH from CHITIETDATPHONG where MAPDP in\r\n" +
                 "(select booked.MAPDP \r\n" +
-                "from (select MaPDP, NGAYDEN, DATEADD(DAY, SODEMLUUTRU, NGAYDEN) as NgayDi from phieudatphong where TINHTRANG = N'Đã check in' or TINHTRANG = N'Chờ check in') booked\r\n" +
+                "from (select MaPDP, NGAYDEN, DATEADD(DAY, SODEMLUUTRU, NGAYDEN) as NgayDi from phieudatphong  ) booked\r\n" +
                 $"where (booked.NGAYDEN >= '{checkinDate}' and booked.NGAYDEN <= '{checkoutDate}') OR (booked.NGAYDI >= '{checkinDate}' and booked.NGAYDI <= '{checkoutDate}') OR (booked.NGAYDEN <= '{checkinDate}' and booked.NGAYDI >= '{checkoutDate}')))";
+
+            MessageBox.Show(query);
             return DataProvider.Instance.ExecuteQuery(query);   
         } 
     }

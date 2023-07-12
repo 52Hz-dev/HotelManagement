@@ -127,5 +127,21 @@ namespace Hotel
             if (ok) MessageBox.Show("Đặt phòng thành công!");
             else MessageBox.Show("ERROR!");
         }
+        private void TxtSDT_Leave(object sender, EventArgs e)
+        {
+            KhachHang kh = null;
+            if (TxtSDT.Text.Length > 0)
+            {
+                kh = KhachHang.GetCustomerByTelNum(TxtSDT.Text);
+            }
+            if (kh != null)
+            {
+                TxtHoTen.Text = kh.HoTen.ToString();
+                TxtDiaChi.Text = kh.DiaChi.ToString();
+                TxtEmail.Text = kh.Email.ToString();
+                TxtCMND.Text = kh.CMND.ToString();
+                TxtFax.Text = kh.FAX.ToString();
+            }
+        }
     }
 }

@@ -218,6 +218,7 @@
             this.TxtSDT.Name = "TxtSDT";
             this.TxtSDT.Size = new System.Drawing.Size(195, 27);
             this.TxtSDT.TabIndex = 3;
+            this.TxtSDT.Leave += new System.EventHandler(this.TxtSDT_Leave);
             // 
             // label4
             // 
