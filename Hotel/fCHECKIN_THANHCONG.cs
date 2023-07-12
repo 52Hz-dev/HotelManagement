@@ -33,13 +33,12 @@ namespace Hotel
             txtSodem.Text = fCHECKIN.txtSodem;
             txtYCDB.Text = fCHECKIN.txtYeucau;
             txtDatcoc.Text = fCHECKIN.txtThanhtoantruoc;
-            cbHTTT.Text = fCHECKIN.txtHTTT;
-            MessageBox.Show(fCHECKIN.txtHTTT);
             dgvDSPHONG.DataSource = list;
             cbHTTT.Items.Clear();
             cbHTTT.Items.Add("Tiền mặt");
             cbHTTT.Items.Add("Thẻ tín dụng");
             cbHTTT.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbHTTT.Text = fCHECKIN.txtHTTT;
 
         }
 
@@ -54,7 +53,7 @@ namespace Hotel
             
             if (txtDatcoc.Text != null || cbHTTT.Text != null)
             {
-                PHIEUDATPHONG pdp = new PHIEUDATPHONG(txtMaPhieu.Text, txtYCDB.Text, txtDatcoc.Text, cbHTTT.Text, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                PHIEUDATPHONG pdp = new PHIEUDATPHONG(txtMaPhieu.Text, txtYCDB.Text, txtDatcoc.Text, cbHTTT.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
                 if (PHIEUDATPHONG.checkin(pdp) == 1 || KhachHang.updatethongtin(kh) == 1)
                 {
                     MessageBox.Show("Check in thành công!");

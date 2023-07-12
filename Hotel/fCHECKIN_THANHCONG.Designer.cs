@@ -38,6 +38,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSodem = new System.Windows.Forms.Label();
             this.txtMaKH = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.Label();
             this.txtMaPhieu = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSodem = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -202,6 +202,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(708, 607);
             this.panel2.TabIndex = 6;
+            // 
+            // txtSodem
+            // 
+            this.txtSodem.AutoSize = true;
+            this.txtSodem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSodem.ForeColor = System.Drawing.Color.Black;
+            this.txtSodem.Location = new System.Drawing.Point(240, 377);
+            this.txtSodem.Name = "txtSodem";
+            this.txtSodem.Size = new System.Drawing.Size(42, 25);
+            this.txtSodem.TabIndex = 30;
+            this.txtSodem.Text = "null";
             // 
             // txtMaKH
             // 
@@ -465,17 +476,6 @@
             this.label8.Size = new System.Drawing.Size(586, 32);
             this.label8.TabIndex = 0;
             this.label8.Text = "THÔNG TIN CHI TIẾT PHIẾU ĐẶT PHÒNG";
-            // 
-            // txtSodem
-            // 
-            this.txtSodem.AutoSize = true;
-            this.txtSodem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSodem.ForeColor = System.Drawing.Color.Black;
-            this.txtSodem.Location = new System.Drawing.Point(240, 377);
-            this.txtSodem.Name = "txtSodem";
-            this.txtSodem.Size = new System.Drawing.Size(42, 25);
-            this.txtSodem.TabIndex = 30;
-            this.txtSodem.Text = "null";
             // 
             // fCHECKIN_THANHCONG
             // 
