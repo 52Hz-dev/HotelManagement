@@ -24,6 +24,18 @@ namespace Hotel.DAO
             }    
             return list;
         }
+        public static List<PHIEUDATPHONG> DS_PDP_DACHECKIN()
+        {
+            List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
+            String query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is not null and kh.makh = pdp.nguoidat and pdp.mapdp not in (select mapdp from hoadon)";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                PHIEUDATPHONG pdp = new PHIEUDATPHONG(dr);
+                list.Add(pdp);
+            }
+            return list;
+        }
         public static string GetLastId()
         {
             DataTable data = new DataTable();
@@ -31,12 +43,11 @@ namespace Hotel.DAO
             return data.Rows[data.Rows.Count - 1]["MaPDP"].ToString();
         }
 
-        public static String TienPhong()
+        public static String TienPhong(string mapdp)
         {
             string query = "select SUM(LOAIPHONG.DONGIA*PHIEUDATPHONG.SODEMLUUTRU) " +
-                            "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +
-                            "where  KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT " +
-                            "and PHIEUDATPHONG.MAPDP = CHITIETDATPHONG.MAPDP " +
+                            "from  PHIEUDATPHONG,CHITIETDATPHONG, PHONG, LOAIPHONG " +
+                            "where PHIEUDATPHONG.MAPDP = '"+mapdp+"' and PHIEUDATPHONG.MAPDP = CHITIETDATPHONG.MAPDP " +
                             "and CHITIETDATPHONG.MAPH = PHONG.MAPH and PHONG.LOAIPH = LOAIPHONG.MALP";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0][0].ToString();
@@ -49,13 +60,11 @@ namespace Hotel.DAO
             if (count > 0) return true;
             else return false;
         }
-        public static String TienCoc()
+        public static String TienCoc(string mapdp)
         {
-            string query = "select SUM(PHIEUDATPHONG.TIENDATCOC) " +
-                            "from KHACHHANG, PHIEUDATPHONG, CHITIETDATPHONG, PHONG, LOAIPHONG " +
-                            "where  KHACHHANG.MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT " +
-                            "and PHIEUDATPHONG.MAPDP = CHITIETDATPHONG.MAPDP " +
-                            "and CHITIETDATPHONG.MAPH = PHONG.MAPH and PHONG.LOAIPH = LOAIPHONG.MALP";
+            string query = "select TIENDATCOC " +
+                            "from  PHIEUDATPHONG " +
+                            "where MAPDP = '"+mapdp+"'  ";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0][0].ToString();
         }
@@ -65,10 +74,11 @@ namespace Hotel.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result;
         }
-        public static List<PHIEUDATPHONG> FILTER_BY_MAPHIEU(string value)
+        public static List<PHIEUDATPHONG> FILTER_BY_MAPHIEU(string loai,string value)
         {
-            
-            string query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and pdp.MAPDP LIKE '%" + value+"%'";
+            string query;
+            if (loai =="CHECKIN") query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and pdp.MAPDP LIKE '%" + value+"%' and pdp.mapdp not in (select mapdp from hoadon)";
+            else query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is not null and kh.makh = pdp.nguoidat and pdp.MAPDP LIKE '%" + value + "%' and pdp.mapdp not in (select mapdp from hoadon)";
             List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
@@ -78,9 +88,11 @@ namespace Hotel.DAO
             }
             return list;
         }
-        public static List<PHIEUDATPHONG> FILTER_BY_HOTEN(string value)
+        public static List<PHIEUDATPHONG> FILTER_BY_HOTEN(string loai, string value)
         {
-            string query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and kh.HOTEN LIKE N'%" + value + "%' ";
+            string query;
+            if (loai == "CHECKIN") query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and kh.HOTEN LIKE N'%" + value + "%'  and pdp.mapdp not in (select mapdp from hoadon)";
+            else query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is not null and kh.makh = pdp.nguoidat and kh.HOTEN LIKE N'%" + value + "%'  and pdp.mapdp not in (select mapdp from hoadon)";
             List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
@@ -90,9 +102,11 @@ namespace Hotel.DAO
             }
             return list;
         }
-        public static List<PHIEUDATPHONG> FILTER_BY_CMND(string value)
+        public static List<PHIEUDATPHONG> FILTER_BY_CMND(string loai, string value)
         {
-            string query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and  kh.CMND LIKE '%" + value + "%' ";
+            string query;
+            if (loai == "CHECKIN") query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and  kh.CMND LIKE '%" + value + "%'  and pdp.mapdp not in (select mapdp from hoadon)";
+            else query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is not null and kh.makh = pdp.nguoidat and  kh.CMND LIKE '%" + value + "%'  and pdp.mapdp not in (select mapdp from hoadon)";
             List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
@@ -102,9 +116,11 @@ namespace Hotel.DAO
             }
             return list;
         }
-        public static List<PHIEUDATPHONG> FILTER_BY_SDT(string value)
+        public static List<PHIEUDATPHONG> FILTER_BY_SDT(string loai, string value)
         {
-            string query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and kh.SDT LIKE '%" + value + "%'";
+            string query;
+            if (loai == "CHECKIN") query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is null and kh.makh = pdp.nguoidat and kh.SDT LIKE '%" + value + "%' and pdp.mapdp not in (select mapdp from hoadon)";
+            else query = "select * from phieudatphong pdp,khachhang kh where pdp.ngaycheckin is not null and kh.makh = pdp.nguoidat and kh.SDT LIKE '%" + value + "%' and pdp.mapdp not in (select mapdp from hoadon)";
             List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)

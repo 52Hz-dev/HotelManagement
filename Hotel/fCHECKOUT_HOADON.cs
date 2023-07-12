@@ -1,8 +1,8 @@
 ﻿using Hotel.DAO;
 using Hotel.DTB;
 using Hotel.DTO;
-using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,33 +10,41 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace Hotel
 {
-    public partial class Form1 : Form
+    public partial class fCHECKOUT_HOADON : Form
     {
-        public Form1()
+        private String maPDP;
+        private String thanhTien;
+        public fCHECKOUT_HOADON()
         {
             InitializeComponent();
             loadIfKH();
             loadListRoom();
             loadListDVThuong();
             loadListDVTour();
-            loadMiniBar();
             loadTongTien();
         }
 
+        private void lbTitlePhong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lBTitle_Click(object sender, EventArgs e)
+        {
+
+        }
         void loadIfKH()
         {
             int x = lBTitle.Size.Width / 2;
-            int y = lBTitle.Size.Height;
-            lBTitle.Location = new Point(panel2.Size.Width / 2 - x, y);
-            KhachHang kh = new KhachHang(KhachHangDAO.selectIfKH());
+            int y = lBTitle.Size.Height/2;
+            KhachHang kh = KhachHang.laythongtinkhachhang(fCHECKIN.txtMAKH);
+            lBTitle.Location = new Point(panel22.Size.Width / 2 - x, panel22.Size.Height / 2 - y);
             lbGetName.Text = kh.HoTen;
             lbGetCMND.Text = kh.CMND;
             lbGetSDT.Text = kh.SDT;
@@ -44,50 +52,42 @@ namespace Hotel
         void loadListRoom()
         {
             int x = lbTitlePhong.Size.Width / 2;
-            int y = lbTitlePhong.Size.Height;
-            lbTitlePhong.Location = new Point(panel3.Size.Width / 2 - x, y);
-            List<LOAIPHONG> ListRoom = LoaiPhongDAO.InfoRoom();
-            DGV_ListRoom.DataSource = ListRoom;
-           
+            int y = lbTitlePhong.Size.Height / 2;
+            lbTitlePhong.Location = new Point(panel3.Size.Width / 2 - x, panel3.Size.Height / 2 - y);
+            List<CTPhieuDatPhong> list = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
+            DGV_ListRoom.DataSource = list;
+
         }
 
         void loadListDVThuong()
         {
             int x = lb_TitleDVThuong.Size.Width / 2;
-            int y = lb_TitleDVThuong.Size.Height;
-            lb_TitleDVThuong.Location = new Point(panel4.Size.Width / 2 - x, y);
-            List<PHIEUSUDUNGDICHVU> DVThuong = PhieuSuDungDichVuDAO.selectDVThuong();
+            int y = lb_TitleDVThuong.Size.Height/2;
+            lb_TitleDVThuong.Location = new Point(panel4.Size.Width / 2 - x, panel4.Size.Height / 2 - y);
+            List<PHIEUSUDUNGDICHVU> DVThuong = PhieuSuDungDichVuDAO.selectDVThuong(fCHECKIN.txtMAPHIEU);
             DGV_DVThuong.DataSource = DVThuong;
         }
         void loadListDVTour()
         {
             int x = lb_TitleDVTour.Size.Width / 2;
-            int y = lb_TitleDVTour.Size.Height;
-            lb_TitleDVTour.Location = new Point(panel5.Size.Width / 2 - x, y);
-            List<PHIEUSUDUNGDICHVUTOUR> DVTour = PhieuSuDungDichVuTourDAO.selectDVTour();
+            int y = lb_TitleDVTour.Size.Height / 2;
+            lb_TitleDVTour.Location = new Point(panel12.Size.Width / 2 - x, panel12.Size.Height / 2 - y);
+            List<PHIEUSUDUNGDICHVUTOUR> DVTour = PhieuSuDungDichVuTourDAO.selectDVTour(fCHECKIN.txtMAPHIEU);
             DGV_DVTour.DataSource = DVTour;
         }
-        void loadMiniBar()
-        {
-            int x = lb_TitleMiniBar.Size.Width / 2;
-            int y = lb_TitleMiniBar.Size.Height;
-            lb_TitleMiniBar.Location = new Point(panel6.Size.Width / 2 - x, y);
-            lb_TitleDVTour.Location = new Point(panel5.Size.Width / 2 - x, y);
-            List<DICHVU> MiniBar = DichVuDAO.listMiniBar();
-            DGV_MiniBar.DataSource = MiniBar;
-        }
+
 
         void loadTongTien()
         {
             int x = lbTitleTongTien.Size.Width / 2;
-            int y = lbTitleTongTien.Size.Height;
-            lbTitleTongTien.Location = new Point(panel9.Size.Width / 2 - x, y);
-            int TienDVThuong = Convert.ToInt32(loadTienDVThuong());
+            int y = lbTitleTongTien.Size.Height/2;
+            lbTitleTongTien.Location = new Point(panel23.Size.Width / 2 - x, panel23.Size.Height / 2 - y);
+            int TienDVThuong = Convert.ToInt32(loadTienDVThuong()); 
             int TienDVTour = Convert.ToInt32(loadTienDVTour());
-            int TienMiniBar = Convert.ToInt32(loadTienDVMiniBar());
             int TienPhong = Convert.ToInt32(loadTienPhong());
             int TienCoc = Convert.ToInt32(loadTienCoc());
-            lbGetTongTien.Text = (TienPhong + TienDVThuong + TienDVTour + TienMiniBar - TienCoc).ToString();
+             
+            lbGetTongTien.Text = (TienPhong + TienDVThuong + TienDVTour - TienCoc).ToString();
             thanhTien = lbGetTongTien.Text;
         }
 
@@ -96,7 +96,8 @@ namespace Hotel
 
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            string tienDVThuong = PhieuSuDungDichVuDAO.TienDVThuong();
+            string tienDVThuong = PhieuSuDungDichVuDAO.TienDVThuong(fCHECKIN.txtMAPHIEU);
+            if (tienDVThuong == "") tienDVThuong = "0";
             lbGetTienDVThuong.Text = tienDVThuong;
             return tienDVThuong;
         }
@@ -104,25 +105,20 @@ namespace Hotel
         {
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            string tienDVTour= PhieuSuDungDichVuTourDAO.TienDVTour();
+            string tienDVTour = PhieuSuDungDichVuTourDAO.TienDVTour(fCHECKIN.txtMAPHIEU);
+            if (tienDVTour == "") tienDVTour = "0";
             lbGetTienDVTour.Text = tienDVTour;
             return tienDVTour;
         }
 
-        String loadTienDVMiniBar()
-        {
-            DataProvider provider = new DataProvider();
-            DataTable dt = new DataTable();
-            string tienMiniBar= DichVuDAO.TienMiniBar();
-            lbGetTienMiniBar.Text = tienMiniBar;
-            return tienMiniBar;
-        }
+
 
         String loadTienPhong()
         {
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            string TienPhong = PhieuDatPhongDAO.TienPhong();
+            string TienPhong = PhieuDatPhongDAO.TienPhong(fCHECKIN.txtMAPHIEU);
+            if (TienPhong == "") TienPhong = "0";
             lbGetTienPhong.Text = TienPhong;
             return TienPhong;
         }
@@ -130,37 +126,18 @@ namespace Hotel
         {
             DataProvider provider = new DataProvider();
             DataTable dt = new DataTable();
-            string TienCoc = PhieuDatPhongDAO.TienCoc();
+            string TienCoc = PhieuDatPhongDAO.TienCoc(fCHECKIN.txtMAPHIEU);
+            if (TienCoc == "") TienCoc = "0";
             lbGetTienCoc.Text = TienCoc;
             return TienCoc;
-        }
-
-        private void txt_DV_SuDung_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 10, 10);
-            PdfWriter writer=PdfWriter.GetInstance(doc,new FileStream("../../HoaDon/Create.pdf",FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("../../HoaDon/Create.pdf", FileMode.Create));
             doc.Open();
-            Form1 form = new Form1();
+            fCHECKOUT_HOADON form = new fCHECKOUT_HOADON();
             form.ControlBox = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.WindowState = FormWindowState.Maximized;
@@ -178,13 +155,13 @@ namespace Hotel
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
             String mahd = HoaDon.GenerateNewId();
-            HoaDon hd = new HoaDon(mahd, "PDP001", thanhTien, "NV001");
+            HoaDon hd = new HoaDon(mahd, fCHECKIN.txtMAPHIEU, thanhTien, "NV001");
             if (HoaDon.taoHoaDon(hd))
             {
                 MessageBox.Show("Thanh toan thanh cong");
+                List<PHIEUDATPHONG> list = PhieuDatPhongDAO.DS_PDP_DACHECKIN();
+                fCHECKIN.dgvPHIEUDATPHONG.DataSource = list;
             }
         }
-        private String maPDP;
-        private String thanhTien;
     }
 }

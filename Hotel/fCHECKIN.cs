@@ -27,19 +27,26 @@ namespace Hotel
         public fCHECKIN()
         {
             InitializeComponent();
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtmadp.Text == null)
+            if (txtmadp.Text == "null")
             {
                 MessageBox.Show("Bạn chưa chọn phiếu đặt phòng!");
             }
-            else
+            else if(Home.btn == "CHECKIN")
             {
                 fCHECKIN_THANHCONG form = new fCHECKIN_THANHCONG();
                 form.ShowDialog();
             }
+            else
+            {
+                fCHECKOUT_HOADON form2 = new fCHECKOUT_HOADON();
+                form2.ShowDialog();
+            } 
+                
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -49,14 +56,25 @@ namespace Hotel
 
         private void fCHECKIN_Load(object sender, EventArgs e)
         {
+            txtMAPHIEU = "";
             cbAttribute.Items.Clear();
             cbAttribute.Items.Add("Mã phiếu");
             cbAttribute.Items.Add("Họ tên");
             cbAttribute.Items.Add("CMND");
             cbAttribute.Items.Add("SĐT");
             cbAttribute.DropDownStyle = ComboBoxStyle.DropDownList;
-            List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
-            dgvPHIEUDATPHONG.DataSource = pdp;
+            if (Home.btn == "CHECKOUT")
+            {
+                label4.Text = "DANH SÁCH ĐẶT PHÒNG ĐÃ CHECK IN";
+                List<PHIEUDATPHONG> pdp_da = PhieuDatPhongDAO.DS_PDP_DACHECKIN();
+                dgvPHIEUDATPHONG.DataSource = pdp_da;
+                button3.Text = "CHECK OUT";
+            }
+            else if (Home.btn == "CHECKIN")
+            {
+                List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
+                dgvPHIEUDATPHONG.DataSource = pdp;
+            }
             int x = label4.Size.Width / 2;
             int y = label4.Size.Height;
             label4.Location = new Point(panel2.Size.Width / 2 - x, panel2.Size.Height - y);
@@ -65,14 +83,24 @@ namespace Hotel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dgvPHIEUDATPHONG.DataSource = PHIEUDATPHONG.FILTER_WITH_ATTRIBUTE(cbAttribute.Text,txtValue.Text);
+            dgvPHIEUDATPHONG.DataSource = PHIEUDATPHONG.FILTER_WITH_ATTRIBUTE(Home.btn,cbAttribute.Text,txtValue.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
-            dgvPHIEUDATPHONG.DataSource = pdp;
-        }
+            if (Home.btn == "CHECKOUT")
+            {
+                List<PHIEUDATPHONG> pdp_da = PhieuDatPhongDAO.DS_PDP_DACHECKIN();
+                dgvPHIEUDATPHONG.DataSource = pdp_da;
+            }
+            else if (Home.btn == "CHECKIN")
+            {
+                List<PHIEUDATPHONG> pdp = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
+                dgvPHIEUDATPHONG.DataSource = pdp;
+            }
+            txtmadp.Text = "null";
+            txtMAPHIEU = "";
+    }
 
         private void dgvPHIEUDATPHONG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

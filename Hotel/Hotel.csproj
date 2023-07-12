@@ -91,16 +91,16 @@
     <Compile Include="fCHECKIN_THANHCONG.Designer.cs">
       <DependentUpon>fCHECKIN_THANHCONG.cs</DependentUpon>
     </Compile>
+    <Compile Include="fCHECKOUT_HOADON.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCHECKOUT_HOADON.Designer.cs">
+      <DependentUpon>fCHECKOUT_HOADON.cs</DependentUpon>
+    </Compile>
     <Compile Include="fDatPhong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fDatPhong.Designer.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="TinhTrangPhong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="fCHECKIN_THANHCONG.resx">
       <DependentUpon>fCHECKIN_THANHCONG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="fCHECKOUT_HOADON.resx">
+      <DependentUpon>fCHECKOUT_HOADON.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

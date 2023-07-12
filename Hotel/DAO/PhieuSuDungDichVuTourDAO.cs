@@ -11,12 +11,13 @@ namespace Hotel.DAO
 {
     internal class PhieuSuDungDichVuTourDAO
     {
-        public static List<PHIEUSUDUNGDICHVUTOUR> selectDVTour()
+        public static List<PHIEUSUDUNGDICHVUTOUR> selectDVTour(string mapdp)
         {
             List<PHIEUSUDUNGDICHVUTOUR> list = new List<PHIEUSUDUNGDICHVUTOUR>();
-            string query = "select TOUR.MADVT, TOUR.MANGUOILAP, TOUR.MAPDP, TOUR.MAPDVT, TOUR.NGAYLAP, TOUR.SLNGUOI, TOUR.TGKHOIHANH, TOUR.THANHTIEN " +
-                           "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVUTOUR AS TOUR " +
-                           "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = TOUR.MAPDP"; DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            string query = "select * " +
+                           "from  PHIEUSUDUNGDICHVUTOUR " +
+                           "where MAPDP = '"+mapdp+"'"; 
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
             {
                 PHIEUSUDUNGDICHVUTOUR DVTour = new PHIEUSUDUNGDICHVUTOUR(dr);
@@ -24,11 +25,11 @@ namespace Hotel.DAO
             }
             return list;
         }
-        public static String TienDVTour()
+        public static String TienDVTour(string mapdp)
         {
-            string query = "select SUM(THANHTIEN*SLNGUOI) " +
-                           "from PHIEUDATPHONG, KHACHHANG, PHIEUSUDUNGDICHVUTOUR AS TOUR " +
-                           "where MAKH = 'KH001' and KHACHHANG.MAKH = PHIEUDATPHONG.NGUOIDAT and PHIEUDATPHONG.MAPDP = TOUR.MAPDP";
+            string query = "select SUM(THANHTIEN) " +
+                           "from  PHIEUSUDUNGDICHVUTOUR " +
+                           "where MAPDP = '" + mapdp + "'";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0][0].ToString();
         }

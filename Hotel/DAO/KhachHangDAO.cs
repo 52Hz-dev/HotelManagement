@@ -51,9 +51,9 @@ namespace Hotel.DAO
             if (count > 0) return true;
             else return false;
         }
-	 public static DataRow selectIfKH()
+	 public static DataRow selectIfKH(string makh)
         {
-            String query = "select * from KHACHHANG where MAKH = 'KH001'";
+            String query = "select * from KHACHHANG where MAKH = '"+makh+"'";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             return dt.Rows[0];
         }

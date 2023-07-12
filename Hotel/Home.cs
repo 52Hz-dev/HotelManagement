@@ -12,6 +12,7 @@ namespace Hotel
 {
     public partial class Home : Form
     {
+        public static string btn;
         public Home()
         {
             InitializeComponent();
@@ -71,6 +72,7 @@ namespace Hotel
 
         private void button3_Click(object sender, EventArgs e)
         {
+            btn = "CHECKIN";
             ActivateButton(sender);
             callForm(new fCHECKIN());
         }
@@ -82,8 +84,9 @@ namespace Hotel
 
         private void button5_Click(object sender, EventArgs e)
         {
+            btn = "CHECKOUT";
             ActivateButton(sender);
-            callForm(new Form1());
+            callForm(new fCHECKIN());
         }
 
         private void button6_Click(object sender, EventArgs e)
