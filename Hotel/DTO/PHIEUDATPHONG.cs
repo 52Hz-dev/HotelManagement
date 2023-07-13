@@ -102,5 +102,9 @@ namespace Hotel.DTO
             }
             return list;
         }
+        public static List<PHIEUDATPHONG> LISTPHIEUDATPHONG()
+        {
+            return PhieuDatPhongDAO.listpdp();
+        }
     }
 }

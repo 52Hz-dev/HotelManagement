@@ -28,6 +28,7 @@ namespace Hotel
             listSelectedRooms.FullRowSelect = true;
             TxtGhiChu.AutoSize = false;
             TxtGhiChu.Size = new System.Drawing.Size(257, 60);
+            Room.Check_Status_Room();
         }
 
         private void FilterBtn_Click(object sender, EventArgs e)

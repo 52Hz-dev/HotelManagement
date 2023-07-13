@@ -46,9 +46,22 @@ namespace Hotel.DTO
             }
             return list;
         }
-        static public void Update_Using_Room(string maph)
+        static public void Update_Using_Room(string tinhtrang,string maph)
         {
-            PhieuDatPhongDAO.Update_Used_Room(maph);
+            PhieuDatPhongDAO.Update_Used_Room(tinhtrang,maph);
+        }
+        static public void Check_Status_Room()
+        {
+            List<PHIEUDATPHONG> pdp_da = PhieuDatPhongDAO.DS_PDP_DACHECKIN();
+            foreach (PHIEUDATPHONG p in pdp_da)
+            {
+                List<CTPhieuDatPhong> listphong = CTPhieuDatPhong.XemDanhSachPhongDat(p.MAPHIEUDP);
+                foreach (CTPhieuDatPhong phong in listphong)
+                {
+                    Room.Update_Using_Room("Được sử dụng", phong.MaPH);
+                }
+
+            }    
         }
     }
 }

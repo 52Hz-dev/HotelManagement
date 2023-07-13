@@ -21,12 +21,8 @@ namespace Hotel
 
         private void fCHECKIN_THANHCONG_Load(object sender, EventArgs e)
         {
-            List<CTPhieuDatPhong> list = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
-            foreach (CTPhieuDatPhong phong in list)
-            {
-                Room.Update_Using_Room(phong.MaPH);
-            }
             KhachHang kh = KhachHang.laythongtinkhachhang(fCHECKIN.txtMAKH);
+            List<CTPhieuDatPhong> list = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
             txtMaPhieu.Text = fCHECKIN.txtMAPHIEU;
             txtCMND.Text = kh.CMND;
             txtEmail.Text = kh.Email;
@@ -57,9 +53,17 @@ namespace Hotel
             
             if (txtDatcoc.Text != null || cbHTTT.Text != null)
             {
-                PHIEUDATPHONG pdp = new PHIEUDATPHONG(txtMaPhieu.Text, txtYCDB.Text, txtDatcoc.Text, cbHTTT.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                string tiencoc; 
+                if (txtDatcoc.Text == "") tiencoc = "0";
+                else tiencoc = txtDatcoc.Text;
+                PHIEUDATPHONG pdp = new PHIEUDATPHONG(txtMaPhieu.Text, txtYCDB.Text, tiencoc, cbHTTT.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
                 if (PHIEUDATPHONG.checkin(pdp) == 1 || KhachHang.updatethongtin(kh) == 1)
                 {
+                    List<CTPhieuDatPhong> listphong = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
+                    foreach (CTPhieuDatPhong phong in listphong)
+                    {
+                        Room.Update_Using_Room("Được sử dụng",phong.MaPH);
+                    }
                     MessageBox.Show("Check in thành công!");
                     List<PHIEUDATPHONG> list = PhieuDatPhongDAO.DS_PDP_CHOCHECKIN();
                     fCHECKIN.dgvPHIEUDATPHONG.DataSource = list;

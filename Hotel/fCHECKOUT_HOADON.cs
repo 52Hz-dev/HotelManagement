@@ -170,6 +170,11 @@ namespace Hotel
             if (HoaDon.taoHoaDon(hd))
             {
                 MessageBox.Show("Thanh toan thanh cong");
+                List<CTPhieuDatPhong> listphong = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
+                foreach (CTPhieuDatPhong phong in listphong)
+                {
+                    Room.Update_Using_Room("Trống", phong.MaPH);
+                }
                 List<PHIEUDATPHONG> list = PhieuDatPhongDAO.DS_PDP_DACHECKIN();
                 fCHECKIN.dgvPHIEUDATPHONG.DataSource = list;
             }

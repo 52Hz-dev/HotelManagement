@@ -37,15 +37,29 @@ namespace Hotel.DAO
             }
             return list;
         }
+        public static List<PHIEUDATPHONG> listpdp()
+        {
+            List<PHIEUDATPHONG> list = new List<PHIEUDATPHONG>();
+            String query = "select * from phieudatphong pdp,khachhang kh where kh.makh = pdp.nguoidat ";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                PHIEUDATPHONG pdp = new PHIEUDATPHONG(dr);
+                list.Add(pdp);
+            }
+            return list;
+        }
         public static string GetLastId()
         {
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery("select MAPDP from PHIEUDATPHONG");
             return data.Rows[data.Rows.Count - 1]["MaPDP"].ToString();
         }
-        public static int Update_Used_Room(string maph)
+        public static int Update_Used_Room(string tinhtrang, string maph)
         {
-            string query = "update PHONG set TRANGTHAI=N'Đang sử dụng' where MAPH='" + maph + "'";
+            string query;
+            if (tinhtrang == "Được sử dụng") query = "update PHONG set TRANGTHAI=N'Đang sử dụng' where MAPH='" + maph + "'";
+            else query = "update PHONG set TRANGTHAI=N'Trống' where MAPH='" + maph + "'";
             return DataProvider.Instance.ExecuteNonQuery(query);
         }
         public static String TienPhong(string mapdp)

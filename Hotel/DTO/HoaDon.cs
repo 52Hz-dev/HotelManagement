@@ -10,7 +10,7 @@ namespace Hotel.DTO
     internal class HoaDon
     {
         private String MaHD;
-        private DateTime NgayLap;
+        private String NgayLap;
         private String MaPDP;
         private String ThanhTien;
         private String MaNguoiLap;
@@ -18,14 +18,14 @@ namespace Hotel.DTO
         public HoaDon(string maHD,  string maPDP, string thanhTien, string maNguoiLap)
         {
             MaHD = maHD;
-            NgayLap = DateTime.Today;
+            NgayLap = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
             MaPDP = maPDP;
             ThanhTien = thanhTien;
             MaNguoiLap = maNguoiLap;
         }
 
         public string MAHD { get => MaHD; set => MaHD = value; }
-        public DateTime NGAYLAP { get => NgayLap; set => NgayLap = value; }
+        public string NGAYLAP { get => NgayLap; set => NgayLap = value; }
         public string MAPDP { get => MaPDP; set => MaPDP = value; }
         public string THANHTIEN { get => ThanhTien; set => ThanhTien = value; }
         public string MANGUOILAP { get => MaNguoiLap; set => MaNguoiLap = value; }

@@ -21,6 +21,7 @@ namespace Hotel
         }
         public void loadRoom()
         {
+            Room.Check_Status_Room();
             List<Room> list = Room.getListRoom();
             foreach (Room room in list)
             {
