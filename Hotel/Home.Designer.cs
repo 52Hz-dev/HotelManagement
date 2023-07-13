@@ -214,7 +214,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(287, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(937, 640);
+            this.panel2.Size = new System.Drawing.Size(1145, 640);
             this.panel2.TabIndex = 1;
             // 
             // panelCallForm
@@ -223,14 +223,14 @@
             this.panelCallForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCallForm.Location = new System.Drawing.Point(0, 0);
             this.panelCallForm.Name = "panelCallForm";
-            this.panelCallForm.Size = new System.Drawing.Size(937, 640);
+            this.panelCallForm.Size = new System.Drawing.Size(1145, 640);
             this.panelCallForm.TabIndex = 0;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 640);
+            this.ClientSize = new System.Drawing.Size(1432, 640);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Home";

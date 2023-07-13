@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Hotel.DAO
 {
@@ -42,7 +43,11 @@ namespace Hotel.DAO
             data = DataProvider.Instance.ExecuteQuery("select MAPDP from PHIEUDATPHONG");
             return data.Rows[data.Rows.Count - 1]["MaPDP"].ToString();
         }
-
+        public static int Update_Used_Room(string maph)
+        {
+            string query = "update PHONG set TRANGTHAI=N'Đang sử dụng' where MAPH='" + maph + "'";
+            return DataProvider.Instance.ExecuteNonQuery(query);
+        }
         public static String TienPhong(string mapdp)
         {
             string query = "select SUM(LOAIPHONG.DONGIA*PHIEUDATPHONG.SODEMLUUTRU) " +
@@ -55,7 +60,8 @@ namespace Hotel.DAO
 
         public static bool Insert(PhieuDatPhong phieudp)
         {
-            string query = $"INSERT INTO PHIEUDATPHONG (MAPDP, NGAYDAT, NGAYDEN, SODEMLUUTRU, GHICHU, TIENDATCOC, NGUOIDAT, TINHTRANG)\r\nVALUES ('{phieudp.MaDatPhong}', '{phieudp.NgayDat.ToShortDateString()}', '{phieudp.NgayDen.ToShortDateString()}', {phieudp.SoDemLT}, N'{phieudp.GhiChu}', {phieudp.TienDaTra}, '{phieudp.MaKH}', N'Chờ check in')";
+            string query = $"INSERT INTO PHIEUDATPHONG (MAPDP, NGAYDAT, NGAYDEN, SODEMLUUTRU, GHICHU, TIENDATCOC, NGUOIDAT, NGAYCHECKIN)\r\nVALUES ('{phieudp.MaDatPhong}', '{phieudp.NgayDat.ToShortDateString()}', '{phieudp.NgayDen.ToShortDateString()}', {phieudp.SoDemLT}, N'{phieudp.GhiChu}', {phieudp.TienDaTra}, '{phieudp.MaKH}', NULL)";
+            MessageBox.Show(query);
             var count = DataProvider.Instance.ExecuteNonQuery(query);
             if (count > 0) return true;
             else return false;
@@ -71,6 +77,7 @@ namespace Hotel.DAO
         public static int ghinhancheckin(PHIEUDATPHONG pdp)
         {
             string query = "update phieudatphong set GHICHU = N'" + pdp.GHICHUDB + "', TIENDATCOC = " + pdp.DATCOC + ", HTTHANHTOAN=N'" + pdp.HINHTHUCTRA + "', NGAYCHECKIN = '" + pdp.NGAYCHECK_IN + "' where mapdp='" + pdp.MAPHIEUDP + "'";
+            MessageBox.Show(query);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result;
         }

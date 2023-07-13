@@ -46,5 +46,9 @@ namespace Hotel.DTO
             }
             return list;
         }
+        static public void Update_Using_Room(string maph)
+        {
+            PhieuDatPhongDAO.Update_Used_Room(maph);
+        }
     }
 }

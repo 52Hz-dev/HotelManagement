@@ -22,6 +22,10 @@ namespace Hotel
         private void fCHECKIN_THANHCONG_Load(object sender, EventArgs e)
         {
             List<CTPhieuDatPhong> list = CTPhieuDatPhong.XemDanhSachPhongDat(fCHECKIN.txtMAPHIEU);
+            foreach (CTPhieuDatPhong phong in list)
+            {
+                Room.Update_Using_Room(phong.MaPH);
+            }
             KhachHang kh = KhachHang.laythongtinkhachhang(fCHECKIN.txtMAKH);
             txtMaPhieu.Text = fCHECKIN.txtMAPHIEU;
             txtCMND.Text = kh.CMND;
@@ -66,6 +70,11 @@ namespace Hotel
             }
             else  MessageBox.Show("Bạn chưa nhập số tiền thanh toán/chưa chọn hình thức thanh toán!"); 
                 
+
+        }
+
+        private void dgvDSPHONG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

@@ -134,22 +134,33 @@ namespace Hotel
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 10, 10);
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("../../HoaDon/Create.pdf", FileMode.Create));
-            doc.Open();
-            fCHECKOUT_HOADON form = new fCHECKOUT_HOADON();
-            form.ControlBox = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.WindowState = FormWindowState.Maximized;
-            System.Drawing.Bitmap bm = new System.Drawing.Bitmap(form.Width, form.Height);
-            form.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, form.Width, form.Height));
-            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bm, System.Drawing.Imaging.ImageFormat.Bmp);
-            img.ScaleAbsoluteWidth(500f);
-            img.ScaleAbsoluteHeight(800f);
-            doc.Add(img);
-            doc.Close();
-            form.Dispose();
-            MessageBox.Show("In hoa don thanh cong");
+            //Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 10, 10);
+            //PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("../../HoaDon/Create.pdf", FileMode.Create));
+            //doc.Open();     
+            //System.Drawing.Bitmap bm = new System.Drawing.Bitmap(this.Width, this.Height);
+            //iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bm, System.Drawing.Imaging.ImageFormat.Bmp);
+            //img.ScaleAbsoluteWidth(500f);
+            //img.ScaleAbsoluteHeight(800f);
+            //doc.Add(img);
+            //doc.Close();
+            //MessageBox.Show("In hoa don thanh cong");
+
+            using (Bitmap b = new Bitmap(this.Width, this.Height))
+            {
+                using (Graphics g = Graphics.FromImage(b))
+                {
+                    g.CopyFromScreen(this.Location, new Point(0, 0), this.Size);
+                }
+                Document doc = new Document();
+                iTextSharp.text.Image i = iTextSharp.text.Image.GetInstance(b, System.Drawing.Imaging.ImageFormat.Bmp);
+                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("../../HoaDon/create.pdf", FileMode.Create));
+                doc.SetPageSize(new iTextSharp.text.Rectangle(this.Size.Width + doc.LeftMargin + doc.RightMargin+10, this.Size.Height + doc.TopMargin + doc.BottomMargin+10));
+
+                doc.Open();
+
+                doc.Add(i);
+                doc.Close();
+            }
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)

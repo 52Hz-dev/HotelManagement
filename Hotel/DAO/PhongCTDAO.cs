@@ -31,8 +31,6 @@ namespace Hotel.DAO
                 "(select booked.MAPDP \r\n" +
                 "from (select MaPDP, NGAYDEN, DATEADD(DAY, SODEMLUUTRU, NGAYDEN) as NgayDi from phieudatphong  ) booked\r\n" +
                 $"where (booked.NGAYDEN >= '{checkinDate}' and booked.NGAYDEN <= '{checkoutDate}') OR (booked.NGAYDI >= '{checkinDate}' and booked.NGAYDI <= '{checkoutDate}') OR (booked.NGAYDEN <= '{checkinDate}' and booked.NGAYDI >= '{checkoutDate}')))";
-
-            MessageBox.Show(query);
             return DataProvider.Instance.ExecuteQuery(query);   
         } 
     }
