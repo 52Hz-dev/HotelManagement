@@ -24,7 +24,7 @@ namespace Hotel.DTB
         }
         public DataProvider()
         {
-            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP;Integrated Security=true";
+            connectionSTR= "Data Source=localhost;Initial Catalog=QLHTDP1;Integrated Security=true";
             _connection = new SqlConnection(connectionSTR);
             _connection.Open();
 

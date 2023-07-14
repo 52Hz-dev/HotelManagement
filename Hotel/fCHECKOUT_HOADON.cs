@@ -160,6 +160,7 @@ namespace Hotel
 
                 doc.Add(i);
                 doc.Close();
+                MessageBox.Show("In hoa don thanh cong");
             }
         }
 

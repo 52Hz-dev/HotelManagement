@@ -91,7 +91,6 @@ namespace Hotel.DAO
         public static int ghinhancheckin(PHIEUDATPHONG pdp)
         {
             string query = "update phieudatphong set GHICHU = N'" + pdp.GHICHUDB + "', TIENDATCOC = " + pdp.DATCOC + ", HTTHANHTOAN=N'" + pdp.HINHTHUCTRA + "', NGAYCHECKIN = '" + pdp.NGAYCHECK_IN + "' where mapdp='" + pdp.MAPHIEUDP + "'";
-            MessageBox.Show(query);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result;
         }

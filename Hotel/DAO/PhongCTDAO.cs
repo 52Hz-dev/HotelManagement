@@ -25,12 +25,12 @@ namespace Hotel.DAO
             string checkoutDate = ngayden.AddDays(sodem).ToShortDateString();
 
             string query = "select MaPH \r\n" +
-                "from PHONG \r\n" +
+                "from PHONG where TRANGTHAI=N'Trống' \r\n" +
                 "except\r\n" +
                 "(select MaPH from CHITIETDATPHONG where MAPDP in\r\n" +
                 "(select booked.MAPDP \r\n" +
                 "from (select MaPDP, NGAYDEN, DATEADD(DAY, SODEMLUUTRU, NGAYDEN) as NgayDi from phieudatphong  ) booked\r\n" +
-                $"where (booked.NGAYDEN >= '{checkinDate}' and booked.NGAYDEN <= '{checkoutDate}') OR (booked.NGAYDI >= '{checkinDate}' and booked.NGAYDI <= '{checkoutDate}') OR (booked.NGAYDEN <= '{checkinDate}' and booked.NGAYDI >= '{checkoutDate}')))";
+                $"where (booked.NGAYDEN >= '{checkinDate}' and booked.NGAYDEN <= '{checkoutDate}') OR (booked.NGAYDI >= '{checkinDate}' and booked.NGAYDI <= '{checkoutDate}') OR (booked.NGAYDEN <= '{checkinDate}' and booked.NGAYDI >= '{checkoutDate}') ))";
             return DataProvider.Instance.ExecuteQuery(query);   
         } 
     }
